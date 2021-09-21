@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="joint_controller" pkg="ur5_project" type="ur5_control_joint">
+		<param name="reflexx" value="true"/>		
+		<param name="manual" value="false"/>
+        </node>
+
+	<node name="homography_planning" pkg="ur5_project" type="ur5_homography">
+	</node>
+	
+        <node name="ref_genXYZ" pkg = "ur5_project" type="ur5_reflexx_traj">
+		<param name="external_plan" value = "false"/>
+	</node>
+</launch>
