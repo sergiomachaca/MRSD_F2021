@@ -26,22 +26,23 @@ int main(int argc, char ** argv) {
     // Four corners in the real coordinates
     vector < Point2f > world_corner;
     //TODO create world_corner (actual coordinates)
-    world_corner.push_back(Point2f(0.08651,-0.53585));
-    world_corner.push_back(Point2f(0.0145,-0.47061));
-    world_corner.push_back(Point2f(0.02481,-0.42305));
-    world_corner.push_back(Point2f(0.09136,-0.48382));
-   
+    world_corner.push_back(Point2f(0.08707,-0.53616));
+    world_corner.push_back(Point2f(0.01431,-0.48015));
+    world_corner.push_back(Point2f(0.02569,-0.42653));
+    world_corner.push_back(Point2f(0.08691,-0.47915));
+    world_corner.push_back(Point2f(0.08514,-0.50344));
+
 
  
 
     // Four corners in image coordinates
     vector < Point2f > camera_corner;
     // TODO create camera_corner
-    camera_corner.push_back(Point2f(744,130));
-    camera_corner.push_back(Point2f(1018,294));
-    camera_corner.push_back(Point2f(985,437));
-    camera_corner.push_back(Point2f(761,301));
-
+    camera_corner.push_back(Point2f(755,132));
+    camera_corner.push_back(Point2f(1031,297));
+    camera_corner.push_back(Point2f(995,438));
+    camera_corner.push_back(Point2f(782,322));
+    camera_corner.push_back(Point2f(776,243));
 
     // Calculate Homography
     Mat h = findHomography(camera_corner, world_corner, RANSAC);
