@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
+CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/depend.make
@@ -58,17 +58,17 @@ include Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_sto
 include Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/flags.make
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/flags.make
-Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o: /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mrsd/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o"
-	cd /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o -c /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper.cpp
+Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o: /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o"
+	cd /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o -c /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper.cpp
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.i"
-	cd /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper.cpp > CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.i
+	cd /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper.cpp > CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.i
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.s"
-	cd /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper.cpp -o CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.s
+	cd /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper.cpp -o CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.s
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o.requires:
 
@@ -82,17 +82,17 @@ Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_nod
 
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/flags.make
-Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o: /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mrsd/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o"
-	cd /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o -c /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper_node.cpp
+Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o: /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o"
+	cd /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o -c /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper_node.cpp
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.i"
-	cd /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper_node.cpp > CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.i
+	cd /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper_node.cpp > CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.i
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.s"
-	cd /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper_node.cpp -o CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.s
+	cd /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/src/controller_stopper_node.cpp -o CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.s
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o.requires:
 
@@ -113,33 +113,33 @@ controller_stopper_node_OBJECTS = \
 # External object files for target controller_stopper_node
 controller_stopper_node_EXTERNAL_OBJECTS =
 
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/build.make
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/libroscpp.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/librosconsole.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/librosconsole_log4cxx.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/librosconsole_backend_interface.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/libxmlrpcpp.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/libroscpp_serialization.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/librostime.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/libcpp_common.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/mrsd/catkin_ws/devel/lib/controller_stopper/node: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mrsd/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /home/mrsd/catkin_ws/devel/lib/controller_stopper/node"
-	cd /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/controller_stopper_node.dir/link.txt --verbose=$(VERBOSE)
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper.cpp.o
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/src/controller_stopper_node.cpp.o
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/build.make
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/libroscpp.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/librosconsole.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/libroscpp_serialization.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/librostime.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /opt/ros/melodic/lib/libcpp_common.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/alex/catkin_ws/devel/lib/controller_stopper/node: Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /home/alex/catkin_ws/devel/lib/controller_stopper/node"
+	cd /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/controller_stopper_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/build: /home/mrsd/catkin_ws/devel/lib/controller_stopper/node
+Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/build: /home/alex/catkin_ws/devel/lib/controller_stopper/node
 
 .PHONY : Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/build
 
@@ -149,10 +149,10 @@ Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_nod
 .PHONY : Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/requires
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/clean:
-	cd /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && $(CMAKE_COMMAND) -P CMakeFiles/controller_stopper_node.dir/cmake_clean.cmake
+	cd /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper && $(CMAKE_COMMAND) -P CMakeFiles/controller_stopper_node.dir/cmake_clean.cmake
 .PHONY : Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/clean
 
 Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/depend:
-	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mrsd/catkin_ws/src /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper /home/mrsd/catkin_ws/build /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/catkin_ws/src /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper /home/alex/catkin_ws/build /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Universal_Robots_ROS_Driver/controller_stopper/CMakeFiles/controller_stopper_node.dir/depend
 

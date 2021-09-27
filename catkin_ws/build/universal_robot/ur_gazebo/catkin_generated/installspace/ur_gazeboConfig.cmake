@@ -67,14 +67,14 @@ set(ur_gazebo_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ur_gazebo_SOURCE_PREFIX /home/mrsd/catkin_ws/src/universal_robot/ur_gazebo)
-  set(ur_gazebo_DEVEL_PREFIX /home/mrsd/catkin_ws/devel)
+  set(ur_gazebo_SOURCE_PREFIX /home/alex/catkin_ws/src/universal_robot/ur_gazebo)
+  set(ur_gazebo_DEVEL_PREFIX /home/alex/catkin_ws/devel)
   set(ur_gazebo_INSTALL_PREFIX "")
   set(ur_gazebo_PREFIX ${ur_gazebo_DEVEL_PREFIX})
 else()
   set(ur_gazebo_SOURCE_PREFIX "")
   set(ur_gazebo_DEVEL_PREFIX "")
-  set(ur_gazebo_INSTALL_PREFIX /home/mrsd/catkin_ws/install)
+  set(ur_gazebo_INSTALL_PREFIX /home/alex/catkin_ws/install)
   set(ur_gazebo_PREFIX ${ur_gazebo_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/mrsd/catkin_ws/install/lib;/opt/ros/melodic/lib)
+    foreach(path /home/alex/catkin_ws/install/lib;/home/alex/catkin_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/mrsd/catkin_ws/src/universal_robot/ur_kinematics/include/ur_kinematics/ur_kin.h
+/home/alex/catkin_ws/src/universal_robot/ur_kinematics/include/ur_kinematics/ur_kin.h
 
-/home/mrsd/catkin_ws/src/universal_robot/ur_kinematics/include/ur_kinematics/ur_moveit_plugin.h
+/home/alex/catkin_ws/src/universal_robot/ur_kinematics/include/ur_kinematics/ur_moveit_plugin.h
 ros/ros.h
 -
 random_numbers/random_numbers.h
@@ -42,7 +42,7 @@ moveit/robot_model/robot_model.h
 moveit/robot_state/robot_state.h
 -
 
-/home/mrsd/catkin_ws/src/universal_robot/ur_kinematics/src/ur_moveit_plugin.cpp
+/home/alex/catkin_ws/src/universal_robot/ur_kinematics/src/ur_moveit_plugin.cpp
 class_loader/class_loader.h
 -
 tf_conversions/tf_kdl.h

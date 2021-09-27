@@ -1,8 +1,8 @@
-# Install script for directory: /home/mrsd/catkin_ws/src/universal_robot/ur10e_moveit_config
+# Install script for directory: /home/alex/catkin_ws/src/universal_robot/ur10e_moveit_config
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mrsd/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/alex/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,25 +38,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mrsd/catkin_ws/build/universal_robot/ur10e_moveit_config/catkin_generated/installspace/ur10e_moveit_config.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/alex/catkin_ws/build/universal_robot/ur10e_moveit_config/catkin_generated/installspace/ur10e_moveit_config.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur10e_moveit_config/cmake" TYPE FILE FILES
-    "/home/mrsd/catkin_ws/build/universal_robot/ur10e_moveit_config/catkin_generated/installspace/ur10e_moveit_configConfig.cmake"
-    "/home/mrsd/catkin_ws/build/universal_robot/ur10e_moveit_config/catkin_generated/installspace/ur10e_moveit_configConfig-version.cmake"
+    "/home/alex/catkin_ws/build/universal_robot/ur10e_moveit_config/catkin_generated/installspace/ur10e_moveit_configConfig.cmake"
+    "/home/alex/catkin_ws/build/universal_robot/ur10e_moveit_config/catkin_generated/installspace/ur10e_moveit_configConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur10e_moveit_config" TYPE FILE FILES "/home/mrsd/catkin_ws/src/universal_robot/ur10e_moveit_config/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur10e_moveit_config" TYPE FILE FILES "/home/alex/catkin_ws/src/universal_robot/ur10e_moveit_config/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur10e_moveit_config" TYPE DIRECTORY FILES "/home/mrsd/catkin_ws/src/universal_robot/ur10e_moveit_config/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur10e_moveit_config" TYPE DIRECTORY FILES "/home/alex/catkin_ws/src/universal_robot/ur10e_moveit_config/launch")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur10e_moveit_config" TYPE DIRECTORY FILES "/home/mrsd/catkin_ws/src/universal_robot/ur10e_moveit_config/config")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur10e_moveit_config" TYPE DIRECTORY FILES "/home/alex/catkin_ws/src/universal_robot/ur10e_moveit_config/config")
 endif()
 

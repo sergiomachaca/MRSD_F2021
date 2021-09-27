@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ur10_kin.dir/src/ur_kin.cpp.o"
-  "/home/mrsd/catkin_ws/devel/lib/libur10_kin.pdb"
-  "/home/mrsd/catkin_ws/devel/lib/libur10_kin.so"
+  "/home/alex/catkin_ws/devel/lib/libur10_kin.pdb"
+  "/home/alex/catkin_ws/devel/lib/libur10_kin.so"
 )
 
 # Per-language clean rules from dependency scanning.

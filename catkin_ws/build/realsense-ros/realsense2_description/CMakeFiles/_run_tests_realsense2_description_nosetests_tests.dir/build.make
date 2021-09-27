@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
+CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 
 # Utility rule file for _run_tests_realsense2_description_nosetests_tests.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
 include realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/progress.make
 
 realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests:
-	cd /home/mrsd/catkin_ws/build/realsense-ros/realsense2_description && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/run_tests.py /home/mrsd/catkin_ws/build/test_results/realsense2_description/nosetests-tests.xml "\"/usr/bin/cmake\" -E make_directory /home/mrsd/catkin_ws/build/test_results/realsense2_description" "/usr/bin/nosetests-2.7 -P --process-timeout=60 --where=/home/mrsd/catkin_ws/src/realsense-ros/realsense2_description/tests --with-xunit --xunit-file=/home/mrsd/catkin_ws/build/test_results/realsense2_description/nosetests-tests.xml"
+	cd /home/alex/catkin_ws/build/realsense-ros/realsense2_description && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/run_tests.py /home/alex/catkin_ws/build/test_results/realsense2_description/nosetests-tests.xml "\"/usr/bin/cmake\" -E make_directory /home/alex/catkin_ws/build/test_results/realsense2_description" "/usr/bin/nosetests-2.7 -P --process-timeout=60 --where=/home/alex/catkin_ws/src/realsense-ros/realsense2_description/tests --with-xunit --xunit-file=/home/alex/catkin_ws/build/test_results/realsense2_description/nosetests-tests.xml"
 
 _run_tests_realsense2_description_nosetests_tests: realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests
 _run_tests_realsense2_description_nosetests_tests: realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build.make
@@ -67,10 +67,10 @@ realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_descriptio
 .PHONY : realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build
 
 realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/clean:
-	cd /home/mrsd/catkin_ws/build/realsense-ros/realsense2_description && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/cmake_clean.cmake
+	cd /home/alex/catkin_ws/build/realsense-ros/realsense2_description && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/cmake_clean.cmake
 .PHONY : realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/clean
 
 realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/depend:
-	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mrsd/catkin_ws/src /home/mrsd/catkin_ws/src/realsense-ros/realsense2_description /home/mrsd/catkin_ws/build /home/mrsd/catkin_ws/build/realsense-ros/realsense2_description /home/mrsd/catkin_ws/build/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/catkin_ws/src /home/alex/catkin_ws/src/realsense-ros/realsense2_description /home/alex/catkin_ws/build /home/alex/catkin_ws/build/realsense-ros/realsense2_description /home/alex/catkin_ws/build/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/depend
 

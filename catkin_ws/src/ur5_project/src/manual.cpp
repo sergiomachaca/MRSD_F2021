@@ -39,35 +39,14 @@ void initialize_points(trajectory_msgs::JointTrajectoryPoint & _pt, int _nj, flo
 bool initialized = false;
 void eval_points(trajectory_msgs::JointTrajectoryPoint & _point, KDL::JntArray & _jointpositions, int _nj) {
 	for (int i = 0; i < _nj; ++i){
-		if (_jointpositions(i) < -M_PI){
-			_jointpositions(i) = -M_PI;
+		while (_jointpositions(i) > M_PI){
+			_jointpositions(i) -= 2*M_PI;
 		}
-		if (_jointpositions(i) > M_PI){
-			_jointpositions(i) = M_PI;
+		while (_jointpositions(i) < -M_PI){
+			_jointpositions(i) += 2*M_PI;
 		}
 		_point.positions[i] = _jointpositions(i);
 	}
-	// _point.positions[0] = _jointpositions(2);
-	// _point.positions[1] = _jointpositions(1);
-	// _point.positions[2] = _jointpositions(0);
-	// _point.positions[3] = _jointpositions(3);
-	// _point.positions[4] = _jointpositions(4);
-	// _point.positions[5] = _jointpositions(5);
-
-	// if (initialized){
-	// 	_point.positions[0] = _jointpositions(2);
-	// 	_point.positions[1] = _jointpositions(1);
-	// 	_point.positions[2] = _jointpositions(0);
-	// 	_point.positions[3] = _jointpositions(3);
-	// 	_point.positions[4] = _jointpositions(4);
-	// 	_point.positions[5] = _jointpositions(5);
-	// } 
-	// else {
-	// 	for (int i = 0; i < _nj; ++i){
-	// 		_point.positions[i] = 0.0;
-	// 	}
-	// }
-
 	initialized = true;
 }
 
@@ -87,22 +66,23 @@ int main(int argc, char * argv[]) {
 
 	// TODO: Define the ur5 joint names in joint_cmd variable.
 	trajectory_msgs::JointTrajectory joint_cmd;
-	joint_cmd.joint_names[0] = "shoulder_pan_joint";
-	joint_cmd.joint_names[1] = "shoulder_lift_joint";
-	joint_cmd.joint_names[2] = "elbow_joint";
-	joint_cmd.joint_names[3] = "wrist_1_joint";
-	joint_cmd.joint_names[4] = "wrist_2_joint";
-	joint_cmd.joint_names[5] = "wrist_3_joint";
+	joint_cmd.joint_names.push_back("elbow_joint");
+	joint_cmd.joint_names.push_back("shoulder_lift_joint");
+	joint_cmd.joint_names.push_back("shoulder_pan_joint");
+	joint_cmd.joint_names.push_back("wrist_1_joint");
+	joint_cmd.joint_names.push_back("wrist_2_joint");
+	joint_cmd.joint_names.push_back("wrist_3_joint");
 
 	// TODO: Finish manual_joint_cmd by defining each joint value. Please make small changes to the current joint values (0.5 rad)
   	KDL::JntArray manual_joint_cmd = KDL::JntArray(nj);
-	double delta = 0.5;
-	manual_joint_cmd(0) = 50.93/180.0 * M_PI + delta;
-	manual_joint_cmd(1) = -96.61/180.0 * M_PI + delta;
-	manual_joint_cmd(2) = 86.43/180.0 * M_PI + delta;
-	manual_joint_cmd(3) = -80.67/180.0 * M_PI + delta;
-	manual_joint_cmd(4) = -92.98/180.0 * M_PI + delta;
-	manual_joint_cmd(5) = -43.45/180.0 * M_PI + delta;
+	double delta = -10.0/180.0 * M_PI - 0.1;
+	manual_joint_cmd(2) =  delta;
+	manual_joint_cmd(1) =  delta;
+	manual_joint_cmd(0) =  delta;
+	manual_joint_cmd(3) =  delta;
+	manual_joint_cmd(4) =  delta;
+	manual_joint_cmd(5) =  delta;
+
 
 	eval_points(pt, manual_joint_cmd, nj);
 	pt.time_from_start = ros::Duration(5.0);

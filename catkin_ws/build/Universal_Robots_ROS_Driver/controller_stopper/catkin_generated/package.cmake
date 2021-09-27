@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "controller_stopper")
-set(controller_stopper_VERSION "2.0.0")
+set(controller_stopper_VERSION "0.0.1")
 set(controller_stopper_MAINTAINER "Felix Exner <exner@fzi.de>")
 set(controller_stopper_PACKAGE_FORMAT "2")
 set(controller_stopper_BUILD_DEPENDS "controller_manager_msgs" "roscpp" "std_msgs")

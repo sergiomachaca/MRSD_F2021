@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
+CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 
 # Utility rule file for clean_test_results_ur_description.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
 include universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/progress.make
 
 universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description:
-	cd /home/mrsd/catkin_ws/build/universal_robot/ur_description && /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/mrsd/catkin_ws/build/test_results/ur_description
+	cd /home/alex/catkin_ws/build/universal_robot/ur_description && /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/alex/catkin_ws/build/test_results/ur_description
 
 clean_test_results_ur_description: universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description
 clean_test_results_ur_description: universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/build.make
@@ -67,10 +67,10 @@ universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/
 .PHONY : universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/build
 
 universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/clean:
-	cd /home/mrsd/catkin_ws/build/universal_robot/ur_description && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_ur_description.dir/cmake_clean.cmake
+	cd /home/alex/catkin_ws/build/universal_robot/ur_description && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_ur_description.dir/cmake_clean.cmake
 .PHONY : universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/clean
 
 universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/depend:
-	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mrsd/catkin_ws/src /home/mrsd/catkin_ws/src/universal_robot/ur_description /home/mrsd/catkin_ws/build /home/mrsd/catkin_ws/build/universal_robot/ur_description /home/mrsd/catkin_ws/build/universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/catkin_ws/src /home/alex/catkin_ws/src/universal_robot/ur_description /home/alex/catkin_ws/build /home/alex/catkin_ws/build/universal_robot/ur_description /home/alex/catkin_ws/build/universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : universal_robot/ur_description/CMakeFiles/clean_test_results_ur_description.dir/depend
 

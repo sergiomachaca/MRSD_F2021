@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "ur_calibration")
-set(ur_calibration_VERSION "2.0.0")
+set(ur_calibration_VERSION "0.0.2")
 set(ur_calibration_MAINTAINER "Felix Exner <exner@fzi.de>")
 set(ur_calibration_PACKAGE_FORMAT "2")
 set(ur_calibration_BUILD_DEPENDS "eigen" "roscpp" "ur_client_library" "yaml-cpp" "ur_robot_driver")

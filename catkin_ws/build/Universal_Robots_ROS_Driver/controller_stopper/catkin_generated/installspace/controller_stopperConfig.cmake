@@ -67,14 +67,14 @@ set(controller_stopper_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(controller_stopper_SOURCE_PREFIX /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper)
-  set(controller_stopper_DEVEL_PREFIX /home/mrsd/catkin_ws/devel)
+  set(controller_stopper_SOURCE_PREFIX /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper)
+  set(controller_stopper_DEVEL_PREFIX /home/alex/catkin_ws/devel)
   set(controller_stopper_INSTALL_PREFIX "")
   set(controller_stopper_PREFIX ${controller_stopper_DEVEL_PREFIX})
 else()
   set(controller_stopper_SOURCE_PREFIX "")
   set(controller_stopper_DEVEL_PREFIX "")
-  set(controller_stopper_INSTALL_PREFIX /home/mrsd/catkin_ws/install)
+  set(controller_stopper_INSTALL_PREFIX /home/alex/catkin_ws/install)
   set(controller_stopper_PREFIX ${controller_stopper_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/mrsd/catkin_ws/install/lib;/opt/ros/melodic/lib)
+    foreach(path /home/alex/catkin_ws/install/lib;/home/alex/catkin_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
