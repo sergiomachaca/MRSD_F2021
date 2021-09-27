@@ -26,7 +26,7 @@
 using namespace std;
 using namespace KDL;
 // TODO: set move_to_target to false for retrieving current xyzrpy without moving the robot; or set move_to_target to true for executing desired motion. Please compile after making changes 
-bool move_to_target = false;
+bool move_to_target = true;
 
 
 KDL::Chain LWR() {
@@ -142,6 +142,8 @@ int main(int argc, char * argv[]) {
 	float dt = (float) 1 / loop_freq;
 	ros::Rate loop_rate(loop_freq);
 	tf::TransformBroadcaster br;
+	tf::TransformBroadcaster br2;
+	tf::Transform desired_tool_in_base;
 	tf::Transform tool_in_base_link;
   	ros::Publisher cmd_pub = nh_.advertise < trajectory_msgs::JointTrajectory > ("/scaled_pos_joint_traj_controller/command", 10);
 	ros::Subscriber jointStates_sub = nh_.subscribe("/joint_states", 10, get_joint_states);
@@ -173,10 +175,18 @@ int main(int argc, char * argv[]) {
 	target_pt.p.x(-0.0411);
 	target_pt.p.y(-0.212);
 	target_pt.p.z(0.625);
-	target_pt.M.RPY(-3.08, -0.603, -1.87);
-	iksolver.CartToJnt(jointpositions,target_pt,jointpositions_new);
+	target_pt.M  = KDL::Rotation::RPY(-3.08, -0.603, -1.87);
+	int solve = iksolver.CartToJnt(jointpositions,target_pt,jointpositions_new);
 
 	eval_points(pt, jointpositions_new, nj);
+	fksolver.JntToCart(jointpositions_new, cartpos);
+	double roll, pitch, yaw;
+	desired_tool_in_base.setOrigin(tf::Vector3(cartpos.p[0], cartpos.p[1], cartpos.p[2]));
+	cartpos.M.GetRPY(roll, pitch, yaw);
+	tf::Quaternion q;
+	q.setRPY(roll, pitch, yaw);
+	desired_tool_in_base.setRotation(q);
+	br2.sendTransform(tf::StampedTransform(desired_tool_in_base, ros::Time::now(), "base", "desired point"));
 	pt.time_from_start = ros::Duration(5.0);
 	joint_cmd.header.stamp = ros::Time::now();
 	joint_cmd.points.push_back(pt);
@@ -204,7 +214,7 @@ int main(int argc, char * argv[]) {
 				tf::Quaternion q;
 				q.setRPY(roll, pitch, yaw);
 				tool_in_base_link.setRotation(q);
-				br.sendTransform(tf::StampedTransform(tool_in_base_link, ros::Time::now(), "base", "tool_from_kd;"));
+				br.sendTransform(tf::StampedTransform(tool_in_base_link, ros::Time::now(), "base", "tool_from_kd"));
 
 				// tool_in_base_link.setOrigin( tf::Vector3(cartpos.p[0], cartpos.p[1], cartpos.p[2]) );
 				// tf::Quaternion tool_orientation;
