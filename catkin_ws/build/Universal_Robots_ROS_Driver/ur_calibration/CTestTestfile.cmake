@@ -1,7 +1,7 @@
 # CMake generated Testfile for 
-# Source directory: /home/alex/catkin_ws/src/Universal_Robots_ROS_Driver/ur_calibration
-# Build directory: /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/ur_calibration
+# Source directory: /home/mrsd/catkin_ws/src/Universal_Robots_ROS_Driver/ur_calibration
+# Build directory: /home/mrsd/catkin_ws/build/Universal_Robots_ROS_Driver/ur_calibration
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
-add_test(_ctest_ur_calibration_gtest_calibration_test "/home/alex/catkin_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python2" "/opt/ros/melodic/share/catkin/cmake/test/run_tests.py" "/home/alex/catkin_ws/build/test_results/ur_calibration/gtest-calibration_test.xml" "--return-code" "/home/alex/catkin_ws/devel/lib/ur_calibration/calibration_test --gtest_output=xml:/home/alex/catkin_ws/build/test_results/ur_calibration/gtest-calibration_test.xml")
+add_test(_ctest_ur_calibration_gtest_calibration_test "/home/mrsd/catkin_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python2" "/opt/ros/melodic/share/catkin/cmake/test/run_tests.py" "/home/mrsd/catkin_ws/build/test_results/ur_calibration/gtest-calibration_test.xml" "--return-code" "/home/mrsd/catkin_ws/devel/lib/ur_calibration/calibration_test --gtest_output=xml:/home/mrsd/catkin_ws/build/test_results/ur_calibration/gtest-calibration_test.xml")

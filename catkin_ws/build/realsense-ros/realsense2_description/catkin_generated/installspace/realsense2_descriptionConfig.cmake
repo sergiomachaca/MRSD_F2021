@@ -67,14 +67,14 @@ set(realsense2_description_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(realsense2_description_SOURCE_PREFIX /home/alex/catkin_ws/src/realsense-ros/realsense2_description)
-  set(realsense2_description_DEVEL_PREFIX /home/alex/catkin_ws/devel)
+  set(realsense2_description_SOURCE_PREFIX /home/mrsd/catkin_ws/src/realsense-ros/realsense2_description)
+  set(realsense2_description_DEVEL_PREFIX /home/mrsd/catkin_ws/devel)
   set(realsense2_description_INSTALL_PREFIX "")
   set(realsense2_description_PREFIX ${realsense2_description_DEVEL_PREFIX})
 else()
   set(realsense2_description_SOURCE_PREFIX "")
   set(realsense2_description_DEVEL_PREFIX "")
-  set(realsense2_description_INSTALL_PREFIX /home/alex/catkin_ws/install)
+  set(realsense2_description_INSTALL_PREFIX /home/mrsd/catkin_ws/install)
   set(realsense2_description_PREFIX ${realsense2_description_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/alex/catkin_ws/install/lib;/home/alex/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/mrsd/catkin_ws/install/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

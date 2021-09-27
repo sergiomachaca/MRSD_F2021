@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/catkin_ws/src/ur5_project/src/joint.cpp
+/home/mrsd/catkin_ws/src/ur5_project/src/joint.cpp
 ros/ros.h
 -
 geometry_msgs/Twist.h
@@ -14,7 +14,7 @@ geometry_msgs/Twist.h
 kdl/chain.hpp
 -
 Eigen/Core
-/home/alex/catkin_ws/src/ur5_project/src/Eigen/Core
+/home/mrsd/catkin_ws/src/ur5_project/src/Eigen/Core
 kdl/chainfksolver.hpp
 -
 kdl/chainiksolver.hpp
@@ -32,7 +32,7 @@ string
 sstream
 -
 std_msgs/String.h
-/home/alex/catkin_ws/src/ur5_project/src/std_msgs/String.h
+/home/mrsd/catkin_ws/src/ur5_project/src/std_msgs/String.h
 stdio.h
 -
 iostream
@@ -54,7 +54,7 @@ opencv2/imgproc/imgproc.hpp
 opencv2/highgui/highgui.hpp
 -
 opencv2/imgcodecs.hpp
-/home/alex/catkin_ws/src/ur5_project/src/opencv2/imgcodecs.hpp
+/home/mrsd/catkin_ws/src/ur5_project/src/opencv2/imgcodecs.hpp
 
 /opt/ros/melodic/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h

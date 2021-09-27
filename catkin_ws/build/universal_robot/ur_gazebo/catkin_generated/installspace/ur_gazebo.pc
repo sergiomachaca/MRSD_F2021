@@ -1,4 +1,4 @@
-prefix=/home/alex/catkin_ws/install
+prefix=/home/mrsd/catkin_ws/install
 
 Name: ur_gazebo
 Description: Description of ur_gazebo

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
+CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
 
 # Utility rule file for visualization_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_messages_li
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build
 
 universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/clean:
-	cd /home/alex/catkin_ws/build/universal_robot/ur_kinematics && $(CMAKE_COMMAND) -P CMakeFiles/visualization_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/mrsd/catkin_ws/build/universal_robot/ur_kinematics && $(CMAKE_COMMAND) -P CMakeFiles/visualization_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/clean
 
 universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/depend:
-	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/catkin_ws/src /home/alex/catkin_ws/src/universal_robot/ur_kinematics /home/alex/catkin_ws/build /home/alex/catkin_ws/build/universal_robot/ur_kinematics /home/alex/catkin_ws/build/universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mrsd/catkin_ws/src /home/mrsd/catkin_ws/src/universal_robot/ur_kinematics /home/mrsd/catkin_ws/build /home/mrsd/catkin_ws/build/universal_robot/ur_kinematics /home/mrsd/catkin_ws/build/universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/depend
 

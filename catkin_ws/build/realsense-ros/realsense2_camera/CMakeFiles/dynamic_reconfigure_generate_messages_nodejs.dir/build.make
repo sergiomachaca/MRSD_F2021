@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
+CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
 
 # Utility rule file for dynamic_reconfigure_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ realsense-ros/realsense2_camera/CMakeFiles/dynamic_reconfigure_generate_messages
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
 
 realsense-ros/realsense2_camera/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/clean:
-	cd /home/alex/catkin_ws/build/realsense-ros/realsense2_camera && $(CMAKE_COMMAND) -P CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/mrsd/catkin_ws/build/realsense-ros/realsense2_camera && $(CMAKE_COMMAND) -P CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/clean
 
 realsense-ros/realsense2_camera/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/depend:
-	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/catkin_ws/src /home/alex/catkin_ws/src/realsense-ros/realsense2_camera /home/alex/catkin_ws/build /home/alex/catkin_ws/build/realsense-ros/realsense2_camera /home/alex/catkin_ws/build/realsense-ros/realsense2_camera/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mrsd/catkin_ws/src /home/mrsd/catkin_ws/src/realsense-ros/realsense2_camera /home/mrsd/catkin_ws/build /home/mrsd/catkin_ws/build/realsense-ros/realsense2_camera /home/mrsd/catkin_ws/build/realsense-ros/realsense2_camera/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/depend
 

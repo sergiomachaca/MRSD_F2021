@@ -7,5 +7,9 @@
     "python.analysis.extraPaths": [
         "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages",
         "/opt/ros/melodic/lib/python2.7/dist-packages"
-    ]
+    ],
+    "files.associations": {
+        "functional": "cpp",
+        "random": "cpp"
+    }
 }

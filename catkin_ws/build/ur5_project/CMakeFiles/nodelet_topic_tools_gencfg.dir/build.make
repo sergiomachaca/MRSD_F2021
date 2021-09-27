@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
+CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
 
 # Utility rule file for nodelet_topic_tools_gencfg.
 
@@ -63,10 +63,10 @@ ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/build: nodelet_topic_tools
 .PHONY : ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/build
 
 ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/clean:
-	cd /home/alex/catkin_ws/build/ur5_project && $(CMAKE_COMMAND) -P CMakeFiles/nodelet_topic_tools_gencfg.dir/cmake_clean.cmake
+	cd /home/mrsd/catkin_ws/build/ur5_project && $(CMAKE_COMMAND) -P CMakeFiles/nodelet_topic_tools_gencfg.dir/cmake_clean.cmake
 .PHONY : ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/clean
 
 ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/depend:
-	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/catkin_ws/src /home/alex/catkin_ws/src/ur5_project /home/alex/catkin_ws/build /home/alex/catkin_ws/build/ur5_project /home/alex/catkin_ws/build/ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mrsd/catkin_ws/src /home/mrsd/catkin_ws/src/ur5_project /home/mrsd/catkin_ws/build /home/mrsd/catkin_ws/build/ur5_project /home/mrsd/catkin_ws/build/ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/depend
 

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/alex/catkin_ws/src
-# Build directory: /home/alex/catkin_ws/build
+# Source directory: /home/mrsd/catkin_ws/src
+# Build directory: /home/mrsd/catkin_ws/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
@@ -11,6 +11,7 @@ subdirs("Universal_Robots_ROS_Driver/ur_dashboard_msgs")
 subdirs("ur_msgs")
 subdirs("Universal_Robots_ROS_Driver/controller_stopper")
 subdirs("realsense-ros/realsense2_camera")
+subdirs("ur5_project")
 subdirs("universal_robot/ur_description")
 subdirs("universal_robot/ur_gazebo")
 subdirs("universal_robot/ur10_moveit_config")

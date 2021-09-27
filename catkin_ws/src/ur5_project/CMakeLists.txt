@@ -25,7 +25,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package( Eigen3 REQUIRED )
 find_package( orocos_kdl REQUIRED )
-find_package( OpenCV 3.2.0 REQUIRED)
+#find_package( OpenCV REQUIRED)
+find_package(OpenCV 3.2.0 REQUIRED)
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
@@ -227,14 +228,17 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
+add_executable(manual src/manual.cpp)
+target_link_libraries(manual ${catkin_LIBRARIES} orocos-kdl)
 
-add_executable(ur5_control_joint src/joint.cpp)
-target_link_libraries(ur5_control_joint ${catkin_LIBRARIES} orocos-kdl)
+add_executable(ik src/ik.cpp)
+target_link_libraries(ik ${catkin_LIBRARIES} orocos-kdl)
+
+add_executable(reflexxes src/reflexxes.cpp)
+target_link_libraries(reflexxes ${catkin_LIBRARIES} orocos-kdl)
 
 add_executable(ur5_homography src/ur5_homography.cpp)
 target_link_libraries(ur5_homography ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 add_executable(ur5_reflexx_traj src/reflexx_traj.cpp)
 target_link_libraries(ur5_reflexx_traj ${catkin_LIBRARIES} ReflexxesTypeII)
-
-

@@ -1,8 +1,8 @@
-prefix=/home/alex/catkin_ws/devel
+prefix=/home/mrsd/catkin_ws/devel
 
 Name: ur_dashboard_msgs
 Description: Description of ur_dashboard_msgs
-Version: 0.0.0
-Cflags: -I/home/alex/catkin_ws/devel/include
+Version: 2.0.0
+Cflags: -I/home/mrsd/catkin_ws/devel/include
 Libs: -L${prefix}/lib 
 Requires: actionlib_msgs message_runtime std_msgs

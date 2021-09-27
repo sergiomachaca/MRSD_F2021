@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "ur_robot_driver")
-set(ur_robot_driver_VERSION "0.0.3")
+set(ur_robot_driver_VERSION "2.0.0")
 set(ur_robot_driver_MAINTAINER "Felix Exner <exner@fzi.de>")
 set(ur_robot_driver_PACKAGE_FORMAT "2")
 set(ur_robot_driver_BUILD_DEPENDS "boost" "industrial_robot_status_interface" "actionlib" "controller_manager" "control_msgs" "geometry_msgs" "hardware_interface" "kdl_parser" "pass_through_controllers" "pluginlib" "roscpp" "scaled_joint_trajectory_controller" "sensor_msgs" "speed_scaling_interface" "speed_scaling_state_controller" "std_srvs" "tf2_geometry_msgs" "tf2_msgs" "tf" "trajectory_msgs" "ur_client_library" "ur_dashboard_msgs" "ur_msgs")

@@ -1,15 +1,15 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ur_msgs_generate_messages_nodejs"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/RobotModeDataMsg.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/Analog.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/Digital.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/IOStates.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/ToolDataMsg.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/RobotStateRTMsg.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/MasterboardDataMsg.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/srv/SetPayload.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/srv/SetIO.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/ur_msgs/srv/SetSpeedSliderFraction.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/Analog.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/MasterboardDataMsg.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/ToolDataMsg.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/RobotStateRTMsg.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/RobotModeDataMsg.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/IOStates.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/msg/Digital.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/srv/SetSpeedSliderFraction.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/srv/SetPayload.js"
+  "/home/mrsd/catkin_ws/devel/share/gennodejs/ros/ur_msgs/srv/SetIO.js"
 )
 
 # Per-language clean rules from dependency scanning.

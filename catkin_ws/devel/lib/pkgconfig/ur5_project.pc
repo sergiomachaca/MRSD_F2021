@@ -1,4 +1,4 @@
-prefix=/home/alex/catkin_ws/devel
+prefix=/home/mrsd/catkin_ws/devel
 
 Name: ur5_project
 Description: Description of ur5_project

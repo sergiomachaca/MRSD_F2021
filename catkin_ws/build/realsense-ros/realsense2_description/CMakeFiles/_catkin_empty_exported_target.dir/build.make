@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
+CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
 
 # Utility rule file for _catkin_empty_exported_target.
 
@@ -63,10 +63,10 @@ realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.di
 .PHONY : realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/build
 
 realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	cd /home/alex/catkin_ws/build/realsense-ros/realsense2_description && $(CMAKE_COMMAND) -P CMakeFiles/_catkin_empty_exported_target.dir/cmake_clean.cmake
+	cd /home/mrsd/catkin_ws/build/realsense-ros/realsense2_description && $(CMAKE_COMMAND) -P CMakeFiles/_catkin_empty_exported_target.dir/cmake_clean.cmake
 .PHONY : realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/depend:
-	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/catkin_ws/src /home/alex/catkin_ws/src/realsense-ros/realsense2_description /home/alex/catkin_ws/build /home/alex/catkin_ws/build/realsense-ros/realsense2_description /home/alex/catkin_ws/build/realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mrsd/catkin_ws/src /home/mrsd/catkin_ws/src/realsense-ros/realsense2_description /home/mrsd/catkin_ws/build /home/mrsd/catkin_ws/build/realsense-ros/realsense2_description /home/mrsd/catkin_ws/build/realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/depend
 
