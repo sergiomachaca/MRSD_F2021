@@ -26,46 +26,48 @@
 using namespace std;
 using namespace KDL;
 // TODO: set move_to_target to false for retrieving current xyzrpy without moving the robot; or set move_to_target to true for executing desired motion. Please compile after making changes 
-bool move_to_target = false;
+bool move_to_target = true;
 
 /*	TODO: copy and paste your kdl chain definitions 
 */
 KDL::Chain LWR() {
-	KDL::Chain chain;
-	// base
-	Frame R, T;
-	R = Frame(Rotation::RPY(0,0,0));
-	T = Frame(Vector());
-	Frame frame1 = Frame(T * R);
-	chain.addSegment(Segment(Joint(Joint::None), frame1));
-	// shoulder_pan_joint
-	R = Frame();
-	T = Frame();
-	Frame frame2 = Frame(T * R);
-	chain.addSegment(Segment(Joint(Joint::RotZ), frame2));
-	// shoulder_lift_joint
-	R = Frame();
-	T = Frame();
-	Frame frame3 = Frame(T * R);
-	chain.addSegment(Segment(Joint(Joint::RotZ), frame3));
-	// elbow joint
-	R = Frame();
-	T = Frame();
-	Frame frame4 = Frame(T * R);
-	chain.addSegment(Segment(Joint(Joint::RotZ), frame4));
-	// wrist 1
-	R = Frame();
-	T = Frame();
-	Frame frame5 = Frame(T * R);
-	chain.addSegment(Segment(Joint(Joint::RotZ), frame5));
-	// wrist 2
-	R = Frame();
-	T = Frame();
-	Frame frame6 = Frame(T * R);
-	chain.addSegment(Segment(Joint(Joint::RotZ), frame6));
-	// wrist 3
-	chain.addSegment(Segment(Joint(Joint::RotZ), Frame(Vector(0.0, 0.0, 0.0))));
-	return chain;
+      //TODO create the KDL chain with the ur5 calibration file 
+      KDL::Chain chain;
+      // base -> shoulder
+      Frame R, T;
+      T = Frame(Vector(0, 0, 0.08929437215831398));
+      R = Frame(Rotation::RPY(0,0,1.194158776760344e-05));
+      Frame frame1 = Frame(T * R);
+      chain.addSegment(Segment(Joint(Joint::None), frame1));
+      // shoulder -> upper_arm
+      T = Frame(Vector(0.0001059934666038868, 0, 0));
+      R = Frame(Rotation::RPY(1.570288659480724, 0, -4.360963378713104e-05));
+      Frame frame2 = Frame(T * R);
+      chain.addSegment(Segment(Joint(Joint::RotZ), frame2));
+      // upper_arm -> forearm
+      T = Frame(Vector(-0.4248744108132448, 0, 0));
+      R = Frame(Rotation::RPY(3.140689141970196,3.141029629875079,3.141577753679916));
+      Frame frame3 = Frame(T * R);
+      chain.addSegment(Segment(Joint(Joint::RotZ), frame3));
+      // forearm -> wrist 1
+      T = Frame(Vector(-0.3921965391248423, -0.001215901650067357, 0.1108697089194659));
+      R = Frame(Rotation::RPY(0.01096650219786626,0.0007089237936044265,-6.461093627887461e-05));
+      Frame frame4 = Frame(T * R);
+      chain.addSegment(Segment(Joint(Joint::RotZ), frame4));
+      // wrist 1 -> wrist 2
+      T = Frame(Vector(-4.432612574180066e-05,-0.09485818230946315,3.804656520711195e-05));
+      R = Frame(Rotation::RPY(1.570395237903663,0,1.346641505478031e-05));
+      Frame frame5 = Frame(T * R);
+      chain.addSegment(Segment(Joint(Joint::RotZ), frame5));
+      // wrist 2 -> wrist 3
+      T = Frame(Vector(5.523513679646697e-05,0.08273360798729773,-7.130081408339577e-06));
+      R = Frame(Rotation::RPY(1.570710145597628,3.141592653589793,-3.141579371363952));
+      Frame frame6 = Frame(T * R);
+      chain.addSegment(Segment(Joint(Joint::RotZ), frame6));
+      // wrist 3 -> end_effector
+      chain.addSegment(Segment(Joint(Joint::RotZ), Frame(Vector(0.0, 0.0, 0.0))));
+
+      return chain;
 }
 
 
@@ -111,9 +113,16 @@ void initialize_points(trajectory_msgs::JointTrajectoryPoint & _pt, int _nj, flo
 /*	TODO: copy and paste eval_points() from manual.cpp
 */
 void eval_points(trajectory_msgs::JointTrajectoryPoint & _point, KDL::JntArray & _jointpositions, int _nj) {
-	/*
-	 * CODE HERE.
-	*/
+	for (int i = 0; i < _nj; ++i){
+		while (_jointpositions(i) > M_PI){
+			_jointpositions(i) -= 2*M_PI;
+		}
+		while (_jointpositions(i) < -M_PI){
+			_jointpositions(i) += 2*M_PI;
+		}
+
+		_point.positions[i] = _jointpositions(i);
+	}
 
 }
 
@@ -124,10 +133,7 @@ void eval_points(trajectory_msgs::JointTrajectoryPoint & _point, KDL::JntArray &
 bool ref_received = false;
 geometry_msgs::Twist refl;
 void get_ref(const geometry_msgs::Twist & data) {
-	/*
-	 * CODE HERE.
-	*/
-
+	refl = data;
 	ref_received = true;
 }
 
@@ -146,30 +152,34 @@ int main(int argc, char * argv[]) {
 	KDL::Frame cartpos;
 
 	// Define the ros node related.
-  ros::init(argc, argv, "reflexxes");
-  ros::NodeHandle nh_;
-  int loop_freq = 10;
-  float dt = (float) 1 / loop_freq;
-  ros::Rate loop_rate(loop_freq);
+	ros::init(argc, argv, "reflexxes");
+	ros::NodeHandle nh_;
+	int loop_freq = 10;
+	float dt = (float) 1 / loop_freq;
+	ros::Rate loop_rate(loop_freq);
 	tf::TransformBroadcaster br;
 	tf::Transform tool_in_base_link;
-  ros::Publisher cmd_pub = nh_.advertise < trajectory_msgs::JointTrajectory > ("/scaled_pos_joint_traj_controller/command", 10);
+  	ros::Publisher cmd_pub = nh_.advertise < trajectory_msgs::JointTrajectory > ("/scaled_pos_joint_traj_controller/command", 10);
 	ros::Subscriber jointStates_sub = nh_.subscribe("/joint_states", 10, get_joint_states);
 	ros::Publisher xyzrpy_pub = nh_.advertise < geometry_msgs::Twist > ("/robot/worldpos", 10);
+	
 	// TODO: Define a subscriber named ref_sub to subscribe from rostopic /reftraj for reading the reference trajectories from the reflexx_traj.cpp node.
-	/*
-	 * CODE HERE.
-	*/
+	ros::Subscriber ref_sub = nh_.subscribe("/reftraj", 10, get_ref);
 
-  // Define trajectory point.
-  trajectory_msgs::JointTrajectoryPoint pt;
-  initialize_points(pt, nj, 0.0);
+
+  	// Define trajectory point.
+	trajectory_msgs::JointTrajectoryPoint pt;
+	initialize_points(pt, nj, 0.0);
 
 	// TODO: copy and paste joint names definitions
 	trajectory_msgs::JointTrajectory joint_cmd;
-	/*
-	 * CODE HERE.
-	*/
+	joint_cmd.joint_names.push_back("shoulder_pan_joint");
+	joint_cmd.joint_names.push_back("shoulder_lift_joint");
+	joint_cmd.joint_names.push_back("elbow_joint");
+	joint_cmd.joint_names.push_back("wrist_1_joint");
+	joint_cmd.joint_names.push_back("wrist_2_joint");
+	joint_cmd.joint_names.push_back("wrist_3_joint");
+
 
 	while(!joint_received){
 		ros::spinOnce();
@@ -177,16 +187,16 @@ int main(int argc, char * argv[]) {
 	}
 
 	// TODO: copy and paste jointpositions definition from ik.cpp.
-	/*
-	 * CODE HERE.
-	*/
+	for (int i = 0; i < nj; i++) {
+        jointpositions(i) = joints.position[i];
+    }
 
 	eval_points(pt, jointpositions, nj);
 	pt.time_from_start = ros::Duration(5.0);
 	joint_cmd.header.stamp = ros::Time::now();
 	joint_cmd.points.push_back(pt);
 
-  while (ros::ok()) {
+  	while (ros::ok()) {
 		if (initialized) {
 			bool kinematics_status;
 			double roll, pitch, yaw, x, y, z;
@@ -195,11 +205,14 @@ int main(int argc, char * argv[]) {
 			}
 
 			if (ref_received) {
-			// TODO: Update jointpositions_new using reflexxe_traj.cpp calculated values and inverse kinematics solver.
-			/*	
-			 * CODE HERE.
+			// TODO: Update jointpositions_new using reflexx_traj.cpp calculated values and inverse kinematics solver.
+			KDL::Frame target_pt;
+			target_pt.p.x(refl.linear.x);
+			target_pt.p.y(refl.linear.y);
+			target_pt.p.z(refl.linear.z);
+			target_pt.M  = KDL::Rotation::RPY(refl.angular.x, refl.angular.y, refl.angular.z);
+			int solve = iksolver.CartToJnt(jointpositions,target_pt,jointpositions_new);
 
-			*/
 			eval_points(pt, jointpositions_new, nj);
 			pt.time_from_start = ros::Duration(dt);
 			joint_cmd.points[0] = pt;
@@ -222,7 +235,7 @@ int main(int argc, char * argv[]) {
 				tf::Quaternion tool_orientation;
 				tool_orientation.setRPY(roll, pitch,  yaw); 
 				tool_in_base_link.setRotation( tool_orientation );
-				br.sendTransform(tf::StampedTransform(tool_in_base_link, ros::Time::now(), "base_link", "tool_from_kdl"));
+				br.sendTransform(tf::StampedTransform(tool_in_base_link, ros::Time::now(), "base", "tool_from_kdl"));
 			}
 			joint_cmd.header.stamp = ros::Time::now();
 			if (move_to_target) {

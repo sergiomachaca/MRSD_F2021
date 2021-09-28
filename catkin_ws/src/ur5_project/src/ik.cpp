@@ -26,7 +26,7 @@
 using namespace std;
 using namespace KDL;
 // TODO: set move_to_target to false for retrieving current xyzrpy without moving the robot; or set move_to_target to true for executing desired motion. Please compile after making changes 
-bool move_to_target = true;
+bool move_to_target = false;
 
 
 KDL::Chain LWR() {
@@ -111,12 +111,12 @@ void initialize_points(trajectory_msgs::JointTrajectoryPoint & _pt, int _nj, flo
 
 void eval_points(trajectory_msgs::JointTrajectoryPoint & _point, KDL::JntArray & _jointpositions, int _nj) {
 	for (int i = 0; i < _nj; ++i){
-		while (_jointpositions(i) > M_PI){
-			_jointpositions(i) -= 2*M_PI;
-		}
-		while (_jointpositions(i) < -M_PI){
-			_jointpositions(i) += 2*M_PI;
-		}
+		// while (_jointpositions(i) > M_PI){
+		// 	_jointpositions(i) -= 2*M_PI;
+		// }
+		// while (_jointpositions(i) < -M_PI){
+		// 	_jointpositions(i) += 2*M_PI;
+		// }
 
 		_point.positions[i] = _jointpositions(i);
 	}
@@ -154,12 +154,20 @@ int main(int argc, char * argv[]) {
   	initialize_points(pt, nj, 0.0);
 
 	trajectory_msgs::JointTrajectory joint_cmd;
-	joint_cmd.joint_names.push_back("elbow_joint");
-	joint_cmd.joint_names.push_back("shoulder_lift_joint");
 	joint_cmd.joint_names.push_back("shoulder_pan_joint");
+	joint_cmd.joint_names.push_back("shoulder_lift_joint");
+	joint_cmd.joint_names.push_back("elbow_joint");
+
 	joint_cmd.joint_names.push_back("wrist_1_joint");
 	joint_cmd.joint_names.push_back("wrist_2_joint");
 	joint_cmd.joint_names.push_back("wrist_3_joint");
+
+	// joint_cmd.joint_names.push_back("elbow_joint");
+	// joint_cmd.joint_names.push_back("shoulder_lift_joint");
+	// joint_cmd.joint_names.push_back("shoulder_pan_joint");
+	// joint_cmd.joint_names.push_back("wrist_1_joint");
+	// joint_cmd.joint_names.push_back("wrist_2_joint");
+	// joint_cmd.joint_names.push_back("wrist_3_joint");
 
 	while(!joint_received){
 		ros::spinOnce();
@@ -172,10 +180,10 @@ int main(int argc, char * argv[]) {
 
 	KDL::Frame target_pt;
 	KDL::JntArray jointpositions_new = KDL::JntArray(nj);
-	target_pt.p.x(-0.0411);
-	target_pt.p.y(-0.212);
-	target_pt.p.z(0.625);
-	target_pt.M  = KDL::Rotation::RPY(-3.08, -0.603, -1.87);
+	target_pt.p.x(0.007);
+	target_pt.p.y(-0.260);
+	target_pt.p.z(0.640);
+	target_pt.M  = KDL::Rotation::RPY(-3.00, 0, -2);
 	int solve = iksolver.CartToJnt(jointpositions,target_pt,jointpositions_new);
 
 	eval_points(pt, jointpositions_new, nj);
@@ -215,6 +223,8 @@ int main(int argc, char * argv[]) {
 				q.setRPY(roll, pitch, yaw);
 				tool_in_base_link.setRotation(q);
 				br.sendTransform(tf::StampedTransform(tool_in_base_link, ros::Time::now(), "base", "tool_from_kd"));
+				br2.sendTransform(tf::StampedTransform(desired_tool_in_base, ros::Time::now(), "base", "desired point"));
+
 
 				// tool_in_base_link.setOrigin( tf::Vector3(cartpos.p[0], cartpos.p[1], cartpos.p[2]) );
 				// tf::Quaternion tool_orientation;

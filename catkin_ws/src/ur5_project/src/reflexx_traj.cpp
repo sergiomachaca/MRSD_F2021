@@ -89,7 +89,7 @@ bool error_received = false;
 void get_pos(const geometry_msgs::Twist & _data){
 	rob_pos = _data;
 	rob_pos_received = true;
-	 if (!init_pos_received) {
+    if (!init_pos_received) {
         init_x = _data.linear.x;
         init_y = _data.linear.y;
         init_z = _data.linear.z;
@@ -123,9 +123,9 @@ int main(int argc, char * argv[])
 			1. Publisher for sending geometry_msgs::Twist at node "/reftraj".
 			2. Subscriber of the robot position "/robot/worldpos/" with the callback function get_pos.
 	*/
-	/*
-	 * CODE HERE.
-	*/    
+  	ros::Publisher reflexxes_pub = nh_.advertise < geometry_msgs::Twist > ("/reftraj", 10);
+    ros::Subscriber worldPos_sub = nh_.subscribe("/robot/worldpos", 10, get_pos);
+
 
     geometry_msgs::Twist ref;
 
@@ -178,7 +178,9 @@ int main(int argc, char * argv[])
 	while (!init_pos_received) {
                 loop_rate.sleep();
                 ros::spinOnce();
+                //std::cout << "Waiting for init pos" << std::endl;
     }
+
     IP -> CurrentPositionVector -> VecData[0] = init_x;
     IP -> CurrentPositionVector -> VecData[1] = init_y;
     IP -> CurrentPositionVector -> VecData[2] = init_z;
@@ -198,9 +200,60 @@ int main(int argc, char * argv[])
 		// TODO: Initlize the solver with current vel, current acc, max vel, max acc, max jerk, target pos, vel, acc
         // You can add small increments (0.02 m or 0.5 rad)to the initial positions to get a close and safe target position
         // initial positions are retrieved in: init_x, init_y, init_z, init_roll, init_pitch, init_yaw
-		/*
-		 * CODE HERE.
-		*/
+		
+
+        //std::cout << "Initializing params" << std::endl;
+        IP -> CurrentVelocityVector -> VecData[0] = 0;
+        IP -> CurrentVelocityVector -> VecData[1] = 0;
+        IP -> CurrentVelocityVector -> VecData[2] = 0;
+        IP -> CurrentVelocityVector -> VecData[3] = 0;
+        IP -> CurrentVelocityVector -> VecData[4] = 0;
+        IP -> CurrentVelocityVector -> VecData[5] = 0;
+        
+        IP -> CurrentAccelerationVector -> VecData[0] = 0;
+        IP -> CurrentAccelerationVector -> VecData[1] = 0;
+        IP -> CurrentAccelerationVector -> VecData[2] = 0;
+        IP -> CurrentAccelerationVector -> VecData[3] = 0;
+        IP -> CurrentAccelerationVector -> VecData[4] = 0;
+        IP -> CurrentAccelerationVector -> VecData[5] = 0;
+
+        IP -> MaxVelocityVector -> VecData[0] = vel_max;
+        IP -> MaxVelocityVector -> VecData[1] = vel_max;
+        IP -> MaxVelocityVector -> VecData[2] = vel_max;
+        IP -> MaxVelocityVector -> VecData[3] = vel_max;
+        IP -> MaxVelocityVector -> VecData[4] = vel_max;
+        IP -> MaxVelocityVector -> VecData[5] = vel_max;
+
+        IP -> MaxAccelerationVector -> VecData[0] = acc_max;
+        IP -> MaxAccelerationVector -> VecData[1] = acc_max;
+        IP -> MaxAccelerationVector -> VecData[2] = acc_max;
+        IP -> MaxAccelerationVector -> VecData[3] = acc_max;
+        IP -> MaxAccelerationVector -> VecData[4] = acc_max;
+        IP -> MaxAccelerationVector -> VecData[5] = acc_max;
+
+        IP -> MaxJerkVector -> VecData[0] = jer_max;
+        IP -> MaxJerkVector -> VecData[1] = jer_max;
+        IP -> MaxJerkVector -> VecData[2] = jer_max;
+        IP -> MaxJerkVector -> VecData[3] = jer_max;
+        IP -> MaxJerkVector -> VecData[4] = jer_max;
+        IP -> MaxJerkVector -> VecData[5] = jer_max;
+
+        IP -> TargetPositionVector -> VecData[0] = init_x;
+        IP -> TargetPositionVector -> VecData[1] = init_y;        
+        IP -> TargetPositionVector -> VecData[2] = init_z + 0.2;
+        IP -> TargetPositionVector -> VecData[3] = init_roll;
+        IP -> TargetPositionVector -> VecData[4] = init_pitch;        
+        IP -> TargetPositionVector -> VecData[5] = init_yaw + 0.5;
+
+        IP -> TargetVelocityVector -> VecData[0] = 0;
+        IP -> TargetVelocityVector -> VecData[1] = 0;
+        IP -> TargetVelocityVector -> VecData[2] = 0;
+        IP -> TargetVelocityVector -> VecData[3] = 0;
+        IP -> TargetVelocityVector -> VecData[4] = 0;
+        IP -> TargetVelocityVector -> VecData[5] = 0;
+
+
+        //std::cout << "End params" << std::endl;
 
 		//determine which Degrees of freedom should be calculated
 		IP->SelectionVector->VecData            [0] =   true        ;
@@ -222,7 +275,7 @@ int main(int argc, char * argv[])
         // ****************************************************************
 		
 		
-		// std::cout << "updating values "<<std::endl;
+		std::cout << "updating values "<<std::endl;
         // Calling the Reflexxes OTG algorithm
         ResultValue =   RML->RMLPosition(       *IP
                                             ,   OP
@@ -285,7 +338,7 @@ int main(int argc, char * argv[])
 		ref.angular.y = IP->CurrentPositionVector->VecData[4];
 		ref.angular.z = IP->CurrentPositionVector->VecData[5];
 
-		//reflexxes_pub.publish(ref); // TODO: recover this line.
+		reflexxes_pub.publish(ref); // TODO: recover this line.
 		
 		}
 		
