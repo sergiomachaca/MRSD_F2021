@@ -68,6 +68,17 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -79,17 +90,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -124,17 +124,6 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles /home/alex/catkin_ws/build/ur5_project/CMakeFiles/progress.marks
@@ -166,6 +155,21 @@ preinstall/fast:
 depend:
 	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+ur5_project/CMakeFiles/ur5_planning.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ur5_project/CMakeFiles/ur5_planning.dir/rule
+.PHONY : ur5_project/CMakeFiles/ur5_planning.dir/rule
+
+# Convenience name for target.
+ur5_planning: ur5_project/CMakeFiles/ur5_planning.dir/rule
+
+.PHONY : ur5_planning
+
+# fast build rule for target.
+ur5_planning/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/ur5_planning.dir/build.make ur5_project/CMakeFiles/ur5_planning.dir/build
+.PHONY : ur5_planning/fast
 
 # Convenience name for target.
 ur5_project/CMakeFiles/ur5_reflexx_traj.dir/rule:
@@ -241,21 +245,6 @@ pcl_ros_gencfg: ur5_project/CMakeFiles/pcl_ros_gencfg.dir/rule
 pcl_ros_gencfg/fast:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/pcl_ros_gencfg.dir/build.make ur5_project/CMakeFiles/pcl_ros_gencfg.dir/build
 .PHONY : pcl_ros_gencfg/fast
-
-# Convenience name for target.
-ur5_project/CMakeFiles/manual.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ur5_project/CMakeFiles/manual.dir/rule
-.PHONY : ur5_project/CMakeFiles/manual.dir/rule
-
-# Convenience name for target.
-manual: ur5_project/CMakeFiles/manual.dir/rule
-
-.PHONY : manual
-
-# fast build rule for target.
-manual/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/manual.dir/build.make ur5_project/CMakeFiles/manual.dir/build
-.PHONY : manual/fast
 
 # Convenience name for target.
 ur5_project/CMakeFiles/nodelet_topic_tools_gencfg.dir/rule:
@@ -453,6 +442,21 @@ topic_tools_generate_messages_nodejs/fast:
 .PHONY : topic_tools_generate_messages_nodejs/fast
 
 # Convenience name for target.
+ur5_project/CMakeFiles/move_with_homography.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ur5_project/CMakeFiles/move_with_homography.dir/rule
+.PHONY : ur5_project/CMakeFiles/move_with_homography.dir/rule
+
+# Convenience name for target.
+move_with_homography: ur5_project/CMakeFiles/move_with_homography.dir/rule
+
+.PHONY : move_with_homography
+
+# fast build rule for target.
+move_with_homography/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/move_with_homography.dir/build.make ur5_project/CMakeFiles/move_with_homography.dir/build
+.PHONY : move_with_homography/fast
+
+# Convenience name for target.
 ur5_project/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ur5_project/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
 .PHONY : ur5_project/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
@@ -524,32 +528,59 @@ src/ik.cpp.s:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/ik.dir/build.make ur5_project/CMakeFiles/ik.dir/src/ik.cpp.s
 .PHONY : src/ik.cpp.s
 
-src/manual.o: src/manual.cpp.o
+src/move_with_homography.o: src/move_with_homography.cpp.o
 
-.PHONY : src/manual.o
+.PHONY : src/move_with_homography.o
 
 # target to build an object file
-src/manual.cpp.o:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/manual.dir/build.make ur5_project/CMakeFiles/manual.dir/src/manual.cpp.o
-.PHONY : src/manual.cpp.o
+src/move_with_homography.cpp.o:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/move_with_homography.dir/build.make ur5_project/CMakeFiles/move_with_homography.dir/src/move_with_homography.cpp.o
+.PHONY : src/move_with_homography.cpp.o
 
-src/manual.i: src/manual.cpp.i
+src/move_with_homography.i: src/move_with_homography.cpp.i
 
-.PHONY : src/manual.i
+.PHONY : src/move_with_homography.i
 
 # target to preprocess a source file
-src/manual.cpp.i:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/manual.dir/build.make ur5_project/CMakeFiles/manual.dir/src/manual.cpp.i
-.PHONY : src/manual.cpp.i
+src/move_with_homography.cpp.i:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/move_with_homography.dir/build.make ur5_project/CMakeFiles/move_with_homography.dir/src/move_with_homography.cpp.i
+.PHONY : src/move_with_homography.cpp.i
 
-src/manual.s: src/manual.cpp.s
+src/move_with_homography.s: src/move_with_homography.cpp.s
 
-.PHONY : src/manual.s
+.PHONY : src/move_with_homography.s
 
 # target to generate assembly for a file
-src/manual.cpp.s:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/manual.dir/build.make ur5_project/CMakeFiles/manual.dir/src/manual.cpp.s
-.PHONY : src/manual.cpp.s
+src/move_with_homography.cpp.s:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/move_with_homography.dir/build.make ur5_project/CMakeFiles/move_with_homography.dir/src/move_with_homography.cpp.s
+.PHONY : src/move_with_homography.cpp.s
+
+src/planning.o: src/planning.cpp.o
+
+.PHONY : src/planning.o
+
+# target to build an object file
+src/planning.cpp.o:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/ur5_planning.dir/build.make ur5_project/CMakeFiles/ur5_planning.dir/src/planning.cpp.o
+.PHONY : src/planning.cpp.o
+
+src/planning.i: src/planning.cpp.i
+
+.PHONY : src/planning.i
+
+# target to preprocess a source file
+src/planning.cpp.i:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/ur5_planning.dir/build.make ur5_project/CMakeFiles/ur5_planning.dir/src/planning.cpp.i
+.PHONY : src/planning.cpp.i
+
+src/planning.s: src/planning.cpp.s
+
+.PHONY : src/planning.s
+
+# target to generate assembly for a file
+src/planning.cpp.s:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/ur5_planning.dir/build.make ur5_project/CMakeFiles/ur5_planning.dir/src/planning.cpp.s
+.PHONY : src/planning.cpp.s
 
 src/reflexx_traj.o: src/reflexx_traj.cpp.o
 
@@ -639,15 +670,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... ur5_planning"
 	@echo "... ur5_reflexx_traj"
 	@echo "... list_install_components"
 	@echo "... ur5_homography"
 	@echo "... reflexxes"
 	@echo "... topic_tools_generate_messages_py"
 	@echo "... pcl_ros_gencfg"
-	@echo "... manual"
 	@echo "... nodelet_topic_tools_gencfg"
 	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... pcl_msgs_generate_messages_eus"
@@ -663,16 +694,19 @@ help:
 	@echo "... install/local"
 	@echo "... pcl_msgs_generate_messages_nodejs"
 	@echo "... topic_tools_generate_messages_nodejs"
-	@echo "... test"
+	@echo "... move_with_homography"
 	@echo "... pcl_msgs_generate_messages_py"
 	@echo "... topic_tools_generate_messages_eus"
 	@echo "... topic_tools_generate_messages_lisp"
 	@echo "... src/ik.o"
 	@echo "... src/ik.i"
 	@echo "... src/ik.s"
-	@echo "... src/manual.o"
-	@echo "... src/manual.i"
-	@echo "... src/manual.s"
+	@echo "... src/move_with_homography.o"
+	@echo "... src/move_with_homography.i"
+	@echo "... src/move_with_homography.s"
+	@echo "... src/planning.o"
+	@echo "... src/planning.i"
+	@echo "... src/planning.s"
 	@echo "... src/reflexx_traj.o"
 	@echo "... src/reflexx_traj.i"
 	@echo "... src/reflexx_traj.s"

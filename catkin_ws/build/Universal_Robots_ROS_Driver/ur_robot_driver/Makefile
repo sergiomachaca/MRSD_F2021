@@ -91,17 +91,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -166,66 +155,6 @@ preinstall/fast:
 depend:
 	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest_test_driver.test.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest_test_driver.test.dir/rule
-.PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest_test_driver.test.dir/rule
-
-# Convenience name for target.
-run_tests_ur_robot_driver_rostest_test_driver.test: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest_test_driver.test.dir/rule
-
-.PHONY : run_tests_ur_robot_driver_rostest_test_driver.test
-
-# fast build rule for target.
-run_tests_ur_robot_driver_rostest_test_driver.test/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest_test_driver.test.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest_test_driver.test.dir/build
-.PHONY : run_tests_ur_robot_driver_rostest_test_driver.test/fast
-
-# Convenience name for target.
-Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver.dir/rule
-.PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver.dir/rule
-
-# Convenience name for target.
-_run_tests_ur_robot_driver: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver.dir/rule
-
-.PHONY : _run_tests_ur_robot_driver
-
-# fast build rule for target.
-_run_tests_ur_robot_driver/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver.dir/build
-.PHONY : _run_tests_ur_robot_driver/fast
-
-# Convenience name for target.
-Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver.dir/rule
-.PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver.dir/rule
-
-# Convenience name for target.
-run_tests_ur_robot_driver: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver.dir/rule
-
-.PHONY : run_tests_ur_robot_driver
-
-# fast build rule for target.
-run_tests_ur_robot_driver/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver.dir/build
-.PHONY : run_tests_ur_robot_driver/fast
-
-# Convenience name for target.
-Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest.dir/rule
-.PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest.dir/rule
-
-# Convenience name for target.
-run_tests_ur_robot_driver_rostest: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest.dir/rule
-
-.PHONY : run_tests_ur_robot_driver_rostest
-
-# fast build rule for target.
-run_tests_ur_robot_driver_rostest/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/run_tests_ur_robot_driver_rostest.dir/build
-.PHONY : run_tests_ur_robot_driver_rostest/fast
 
 # Convenience name for target.
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/rule:
@@ -393,21 +322,6 @@ control_msgs_generate_messages_nodejs/fast:
 .PHONY : control_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest.dir/rule
-.PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest.dir/rule
-
-# Convenience name for target.
-_run_tests_ur_robot_driver_rostest: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest.dir/rule
-
-.PHONY : _run_tests_ur_robot_driver_rostest
-
-# fast build rule for target.
-_run_tests_ur_robot_driver_rostest/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest.dir/build
-.PHONY : _run_tests_ur_robot_driver_rostest/fast
-
-# Convenience name for target.
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/control_msgs_generate_messages_eus.dir/rule:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
 .PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
@@ -466,21 +380,6 @@ control_toolbox_generate_messages_lisp: Universal_Robots_ROS_Driver/ur_robot_dri
 control_toolbox_generate_messages_lisp/fast:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build
 .PHONY : control_toolbox_generate_messages_lisp/fast
-
-# Convenience name for target.
-Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest_test_driver.test.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest_test_driver.test.dir/rule
-.PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest_test_driver.test.dir/rule
-
-# Convenience name for target.
-_run_tests_ur_robot_driver_rostest_test_driver.test: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest_test_driver.test.dir/rule
-
-.PHONY : _run_tests_ur_robot_driver_rostest_test_driver.test
-
-# fast build rule for target.
-_run_tests_ur_robot_driver_rostest_test_driver.test/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest_test_driver.test.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/_run_tests_ur_robot_driver_rostest_test_driver.test.dir/build
-.PHONY : _run_tests_ur_robot_driver_rostest_test_driver.test/fast
 
 # Convenience name for target.
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/control_toolbox_gencfg.dir/rule:
@@ -571,21 +470,6 @@ cartesian_control_msgs_generate_messages_lisp: Universal_Robots_ROS_Driver/ur_ro
 cartesian_control_msgs_generate_messages_lisp/fast:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/cartesian_control_msgs_generate_messages_lisp.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/cartesian_control_msgs_generate_messages_lisp.dir/build
 .PHONY : cartesian_control_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/clean_test_results_ur_robot_driver.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/clean_test_results_ur_robot_driver.dir/rule
-.PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/clean_test_results_ur_robot_driver.dir/rule
-
-# Convenience name for target.
-clean_test_results_ur_robot_driver: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/clean_test_results_ur_robot_driver.dir/rule
-
-.PHONY : clean_test_results_ur_robot_driver
-
-# fast build rule for target.
-clean_test_results_ur_robot_driver/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/clean_test_results_ur_robot_driver.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/clean_test_results_ur_robot_driver.dir/build
-.PHONY : clean_test_results_ur_robot_driver/fast
 
 # Convenience name for target.
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/cartesian_control_msgs_generate_messages_nodejs.dir/rule:
@@ -809,11 +693,6 @@ help:
 	@echo "... install/strip"
 	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... run_tests_ur_robot_driver_rostest_test_driver.test"
-	@echo "... _run_tests_ur_robot_driver"
-	@echo "... run_tests_ur_robot_driver"
-	@echo "... run_tests_ur_robot_driver_rostest"
 	@echo "... robot_state_helper"
 	@echo "... ur_robot_driver_node"
 	@echo "... urcl_log_handler"
@@ -828,19 +707,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... control_msgs_generate_messages_nodejs"
 	@echo "... install/local"
-	@echo "... _run_tests_ur_robot_driver_rostest"
 	@echo "... control_msgs_generate_messages_eus"
 	@echo "... control_toolbox_generate_messages_cpp"
 	@echo "... control_toolbox_generate_messages_eus"
 	@echo "... control_toolbox_generate_messages_lisp"
-	@echo "... _run_tests_ur_robot_driver_rostest_test_driver.test"
 	@echo "... control_toolbox_gencfg"
 	@echo "... control_toolbox_generate_messages_nodejs"
 	@echo "... pass_through_controllers_gencfg"
 	@echo "... cartesian_control_msgs_generate_messages_cpp"
 	@echo "... control_toolbox_generate_messages_py"
 	@echo "... cartesian_control_msgs_generate_messages_lisp"
-	@echo "... clean_test_results_ur_robot_driver"
 	@echo "... cartesian_control_msgs_generate_messages_nodejs"
 	@echo "... src/dashboard_client_node.o"
 	@echo "... src/dashboard_client_node.i"

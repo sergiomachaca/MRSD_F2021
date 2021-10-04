@@ -124,17 +124,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles /home/alex/catkin_ws/build/universal_robot/ur_kinematics/CMakeFiles/progress.marks
@@ -256,6 +245,21 @@ octomap_msgs_generate_messages_cpp: universal_robot/ur_kinematics/CMakeFiles/oct
 octomap_msgs_generate_messages_cpp/fast:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/build.make universal_robot/ur_kinematics/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/build
 .PHONY : octomap_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+.PHONY : universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+shape_msgs_generate_messages_cpp: universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : shape_msgs_generate_messages_cpp
+
+# fast build rule for target.
+shape_msgs_generate_messages_cpp/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build.make universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build
+.PHONY : shape_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule:
@@ -632,21 +636,6 @@ ur5_moveit_plugin/fast:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build
 .PHONY : ur5_moveit_plugin/fast
 
-# Convenience name for target.
-universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
-.PHONY : universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-shape_msgs_generate_messages_cpp: universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : shape_msgs_generate_messages_cpp
-
-# fast build rule for target.
-shape_msgs_generate_messages_cpp/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build.make universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build
-.PHONY : shape_msgs_generate_messages_cpp/fast
-
 src/ur_kin.o: src/ur_kin.cpp.o
 
 .PHONY : src/ur_kin.o
@@ -720,15 +709,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/local"
-	@echo "... install"
 	@echo "... object_recognition_msgs_generate_messages_cpp"
 	@echo "... moveit_msgs_generate_messages_py"
+	@echo "... install"
 	@echo "... moveit_msgs_generate_messages_lisp"
 	@echo "... moveit_msgs_generate_messages_cpp"
 	@echo "... edit_cache"
 	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... octomap_msgs_generate_messages_cpp"
 	@echo "... list_install_components"
+	@echo "... shape_msgs_generate_messages_cpp"
 	@echo "... shape_msgs_generate_messages_eus"
 	@echo "... moveit_ros_planning_gencfg"
 	@echo "... moveit_msgs_generate_messages_eus"
@@ -756,8 +746,6 @@ help:
 	@echo "... moveit_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... ur5_moveit_plugin"
-	@echo "... shape_msgs_generate_messages_cpp"
-	@echo "... test"
 	@echo "... src/ur_kin.o"
 	@echo "... src/ur_kin.i"
 	@echo "... src/ur_kin.s"

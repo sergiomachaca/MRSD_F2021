@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="joint_controller" pkg="ur5_project" type="reflexxes">
+
+        </node>
+
+
+	<node name="homography_planning" pkg="ur5_project" type="ur5_homography">
+		<param name="contour_detection" value="true"/>		
+		<param name="laserFollow" value="true"/>
+
+		
+	</node>
+	
+        <node name="ref_genXYZ" pkg = "ur5_project" type="ur5_reflexx_traj">
+		<param name="external_plan" value = "true"/>
+		
+	</node>
+</launch>

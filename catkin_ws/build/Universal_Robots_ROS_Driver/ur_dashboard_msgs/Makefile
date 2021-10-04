@@ -124,17 +124,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles /home/alex/catkin_ws/build/Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/progress.marks
@@ -794,7 +783,6 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
 	@echo "... ur_dashboard_msgs_genpy"
 	@echo "... ur_dashboard_msgs_gennodejs"
 	@echo "... _ur_dashboard_msgs_generate_messages_check_deps_RobotMode"

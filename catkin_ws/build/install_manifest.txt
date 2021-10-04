@@ -405,6 +405,10 @@
 /home/alex/catkin_ws/install/share/realsense2_camera/rviz/pointcloud.rviz
 /home/alex/catkin_ws/install/share/realsense2_camera/rviz/t265.rviz
 /home/alex/catkin_ws/install/share/realsense2_camera/nodelet_plugins.xml
+/home/alex/catkin_ws/install/lib/pkgconfig/ur5_project.pc
+/home/alex/catkin_ws/install/share/ur5_project/cmake/ur5_projectConfig.cmake
+/home/alex/catkin_ws/install/share/ur5_project/cmake/ur5_projectConfig-version.cmake
+/home/alex/catkin_ws/install/share/ur5_project/package.xml
 /home/alex/catkin_ws/install/lib/pkgconfig/ur_description.pc
 /home/alex/catkin_ws/install/share/ur_description/cmake/ur_descriptionConfig.cmake
 /home/alex/catkin_ws/install/share/ur_description/cmake/ur_descriptionConfig-version.cmake
