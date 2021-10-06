@@ -12,7 +12,7 @@
 	
 
         <node name="ref_genXYZ" pkg = "ur5_project" type="ur5_reflexx_traj">
-		<param name="external_plan" value = "false"/>
+		<param name="external_plan" value = "true"/>
 		
 	</node>
 </launch>

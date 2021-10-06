@@ -35,6 +35,7 @@ Mat h;
 
 CvImagePtr cv_ptr;
 
+
 int thresh = 100;
 Mat src_gray;
 
@@ -79,8 +80,8 @@ double distance(double x1, double y1, double x2, double y2) {
 }
 
 // TODO: define ROI values here pixel 
-int rect_x = 713;
-int rect_y = 523;
+int rect_x = 700;
+int rect_y = 328;
 int rect_width = 250;
 int rect_height = 200;
 
@@ -96,7 +97,7 @@ int main(int argc, char * argv[]) {
     ros::init(argc, argv, "ur5_homography");
     ros::NodeHandle nh_;
     ros::NodeHandle home("~");
-    cout<< "running 1"<<endl;
+    // cout<< "running 1"<<endl;
 
     //TODO: the contour_detection and laserFollow are all false right now, change these values 
     // while you are at the corresponding step
@@ -135,7 +136,6 @@ int main(int argc, char * argv[]) {
     camera_corner.push_back(Point2f(809,444 ));
 
    
-   
     // Calculate Homography
     h = findHomography(camera_corner, world_corner, cv::RANSAC);
 
@@ -151,7 +151,8 @@ int main(int argc, char * argv[]) {
 
     //Define region of interest
     Rect roi;
-    cout << "running 2" << endl;
+    // cout << "running 2" << endl;
+
     while (ros::ok) {
         if (initialized && !plan_created) {
 
@@ -165,13 +166,20 @@ int main(int argc, char * argv[]) {
             roi.width = rect_width;
             roi.height = rect_height;
 
-
             Mat img_gray;
             Mat hsv1, g0, g1;
             // convert the input image to grayscale
             cvtColor(img_raw, img_gray, CV_RGB2GRAY);
-            inRange(img_gray, cv::Scalar(0), cv::Scalar(40), img_gray);
-            cout << "running 3" << endl;
+            int scalar_low = 25;
+            int scalar_high = 65;
+            inRange(img_gray, cv::Scalar(scalar_low), cv::Scalar(scalar_high), img_gray);
+
+            // namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
+            // imshow("image window", img_gray);
+            // waitKey(0);
+            // destroyAllWindows();
+
+            // cout << "running 3" << endl;
 
             // previous waypoints sent to the robot (used for filtering purposes)
             vector < Point2f > prev_way_points;
@@ -184,13 +192,20 @@ int main(int argc, char * argv[]) {
                 if (!track_detected) {
                     track_detected = true;
                     // TODO: define thresh_low and thresh_high so that the contour is detected (0-255)
-                    int thresh_low = 0;
-                    int thresh_high = 255;
+                    int thresh_low = 55;
+                    int thresh_high = 3*thresh_low;
 
                     //  Find edges 
                     Canny(img_gray, img_canny, thresh_low, thresh_high);
-                    //  Find contours
+                    // namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
+                    // imshow("image window", img_canny);
+                    // waitKey(0);
+                    // destroyAllWindows();
+                    // //  Find contours
                     findContours(img_canny, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_NONE, Point(0, 0));
+                    cout << "num countours = " << contours.size() << endl;
+                    
+                    
 
                 } else {
                     plan_created = true;
@@ -213,32 +228,33 @@ int main(int argc, char * argv[]) {
                             in_region = false;
                         }
                     }
-
-                    // for (int j = 0; j < contour.size(); j++){
-                    //     if (!ptInRect(contour[j], roi)){
-                    //         in_region = false;
-                    //     }
-                    // }
-
+                    // cout << "in region" << in_region << endl;
                     // if the path is in the region of interest 
                     if (in_region) {
                         // add the contours in the region of interest to the final contour 
+                        drawContours(img_raw, contours, i, cv::Scalar(0,255,0), 2);
+                        namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
+                        imshow("image window", img_raw);
+                        waitKey(0);
+                        destroyAllWindows();
                         contour_path.push_back(contours[i]);
                         // use the first contour path 
                         if (contour_path.size() == 1) {
+                            // cout << "contour path size == 1" << endl;
                             // TODO: calculate the length of the contour in pixels, don't forget the distance between the endpoint and the start point
                             // The total length will be restore in cont_len 
                             double cont_len = 0;
                             int cont_size = contour_path[0].size();
-
-                            for (int k = 0; i < cont_size; k++){
-                                if (k = cont_size-1){
+                            // cout << "cont size = " << cont_size << endl;
+                            for (int k = 0; k < cont_size; k++){
+                                
+                                if (k == cont_size-1){
                                     cont_len += distance(contour_path[0][k].x, contour_path[0][k].y, contour_path[0][0].x, contour_path[0][0].y);
                                 }
                                 cont_len += distance(contour_path[0][k+1].x, contour_path[0][k+1].y, contour_path[0][k].x, contour_path[0][k].y);
                             }
                             
-                            cout << cont_len << endl;
+                            // cout << "cont len = " << cont_len << endl;
 
                             Point pt;
                             double seg_len = 0; //segment distance
@@ -248,7 +264,6 @@ int main(int argc, char * argv[]) {
                             pt = contour_path[0][0];
                             // add the first point to the waypoint list 
                             way_points.push_back(pt);
-
                             // go through the points in the contour and generate waypoints that are equal distance to each other
                             for (int k = 0; k < cont_size - 1; k++) {
                                 // calculate the length of a segment on the contour
@@ -264,6 +279,8 @@ int main(int argc, char * argv[]) {
                                 }
                                 seg_len_prev = seg_len;
                             }
+                            // cout << "waypoint size = " << way_points.size() << endl;
+                            
                             prev_way_points = way_points;
 
                         }
@@ -274,14 +291,18 @@ int main(int argc, char * argv[]) {
                 }
 
             }
-            cout << "running 4" << endl;
+            // cout << "running 4" << endl;
 
             if (plan_created) { // once the plan is created, publish /plan 
-
+                // cout << "plan created 1" << endl;
                 // way points in the robot coordinates 
                 std::vector < Point2f > real_way_points(way_points.size());
-                perspectiveTransform(way_points, real_way_points, h);
+                // cout << way_points << endl;
+                // cout << real_way_points << endl;
+                // cout << h << endl;
 
+                perspectiveTransform(way_points, real_way_points, h);
+                // cout << "post perspective" << endl;
                 trajectory_msgs::JointTrajectory plan;
                 for (int k = 0; k < way_points.size(); k++) {
                     trajectory_msgs::JointTrajectoryPoint plan_pt;
@@ -302,7 +323,7 @@ int main(int argc, char * argv[]) {
                 plan_pub.publish(plan);
 
             }
-            cout << "running 5" << endl;
+            // cout << "running 5" << endl;
 
             // draw the roi on the image 
             rectangle(img_raw, roi, cv::Scalar(255, 255, 0), 1, 8, 0);
@@ -310,23 +331,25 @@ int main(int argc, char * argv[]) {
             // image publisher
             cv_ptr -> image = img_raw;
             img_pub.publish(cv_ptr -> toImageMsg());
+            // cout << "published" << endl;
 
         }
         if (plan_created) {
+                // cout << "plan created" << endl;
 
             if (laserFollow) {
                 // ******************************************Laser Pointer Follower****************************************************
-
+                // cout << "laser follower" << endl;
                 // TODO: change laserFollow in your launch file to true and define the following thresholds to finish the laser pointer follower
                 // You can make contour_detection to be false for now
                 int iLowH = 0;
-                int iHighH = 0;
+                int iHighH = 179;
 
                 int iLowS = 0;
-                int iHighS = 0;
+                int iHighS = 255;
 
-                int iLowV = 0;
-                int iHighV = 0;
+                int iLowV = 245;
+                int iHighV = 255;
 
                 int iH = 1; 
                 int iS = 10; 
@@ -334,6 +357,7 @@ int main(int argc, char * argv[]) {
                 Mat img_canny;
                 Mat imgHSV;
                 cvtColor(cv_ptr -> image, imgHSV, COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV
+
                 Mat imgThresholded;
                 inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image
 
@@ -345,6 +369,12 @@ int main(int argc, char * argv[]) {
                 dilate(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(iS, iS)));
                 erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(iS, iS)));
 
+                // namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
+                // rectangle(imgThresholded, roi, cv::Scalar(255, 255, 0), 1, 8, 0);
+                // imshow("image window", imgThresholded);
+                // waitKey(0);
+                // destroyAllWindows();
+
                 // find moments of the image, in order to find the center of the laser pointer 
                 Moments m = moments(imgThresholded, true);
                 Point p(m.m10 / m.m00, m.m01 / m.m00);
@@ -353,7 +383,8 @@ int main(int argc, char * argv[]) {
                 // the closest point on the contour
                 if (ptInRect(p, roi)) {
                     // draw the center of the laser pointer 
-                    circle(img_raw, p, 5, Scalar(255, 0, 0), FILLED, 8, 0);
+                    // cout << p << endl;
+                    circle(img_raw, p, 5, Scalar(0, 0, 255), FILLED, 8, 0);
                     int ind_min = -1; // index of the point on the contour that is closest to the laser pointer 
                     double x_error, y_error, dist_min = 999.9; // value of the distance between the laser point and the closest point the contour in x, and y direction
                     for (int i = 0; i < contour_path[0].size(); i++) {
@@ -366,12 +397,13 @@ int main(int argc, char * argv[]) {
 
                 }
             }
-            cout << "running 6" << endl;
+            // cout << "running 6" << endl;
 
             //*****************************************End of Laser pointer follower**********************************************
 
             // draw the way points of the image 
             int thickness;
+            // cout << final_way_points.size() << endl;
             for (int i = 0; i < npt; i++) {
                 if (i == 0) {
                     thickness = FILLED;
@@ -380,12 +412,14 @@ int main(int argc, char * argv[]) {
                     thickness = 1;
                 }
                 circle(img_raw, final_way_points[i], 3, Scalar(255, 255, 0), thickness, 8, 0);
+                
             }
             rectangle(img_raw, roi, cv::Scalar(255, 255, 0), 1, 8, 0);
             cv_ptr -> image = img_raw;
             img_pub.publish(cv_ptr -> toImageMsg());
 
         }
+        // cout << "end of code" << endl;
         ros::spinOnce();
         loop_rate.sleep();
 

@@ -611,7 +611,7 @@ all: Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_
 
 # Build rule for subdir invocation for target.
 Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 47
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 46
 	$(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages.dir/rule
@@ -1128,7 +1128,7 @@ Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_gener
 Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_cpp.dir/all: Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/_ur_dashboard_msgs_generate_messages_check_deps_AddToLog.dir/all
 	$(MAKE) -f Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_cpp.dir/build.make Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_cpp.dir/build.make Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33 "Built target ur_dashboard_msgs_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=26,27,28,29,30,31,32,33,34 "Built target ur_dashboard_msgs_generate_messages_cpp"
 .PHONY : Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1533,12 +1533,12 @@ Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_gener
 Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/all: Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/_ur_dashboard_msgs_generate_messages_check_deps_AddToLog.dir/all
 	$(MAKE) -f Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/build.make Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/depend
 	$(MAKE) -f Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/build.make Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=34,35,36,37,38,39,40,41,42,43 "Built target ur_dashboard_msgs_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=35,36,37,38,39,40,41,42,43 "Built target ur_dashboard_msgs_generate_messages_eus"
 .PHONY : Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_generate_messages_eus.dir/rule
@@ -1602,7 +1602,7 @@ Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_geneu
 
 # Build rule for subdir invocation for target.
 Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : Universal_Robots_ROS_Driver/ur_dashboard_msgs/CMakeFiles/ur_dashboard_msgs_geneus.dir/rule
@@ -3340,7 +3340,7 @@ realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_n
 realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_nodejs.dir/all: realsense-ros/realsense2_camera/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_nodejs.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_nodejs.dir/depend
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_nodejs.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=12 "Built target realsense2_camera_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=13 "Built target realsense2_camera_generate_messages_nodejs"
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3439,7 +3439,7 @@ realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_c
 realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_cpp.dir/all: realsense-ros/realsense2_camera/CMakeFiles/_realsense2_camera_generate_messages_check_deps_IMUInfo.dir/all
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_cpp.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_cpp.dir/depend
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_cpp.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=9 "Built target realsense2_camera_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=10 "Built target realsense2_camera_generate_messages_cpp"
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3739,7 +3739,7 @@ realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_e
 realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_eus.dir/all: realsense-ros/realsense2_camera/CMakeFiles/_realsense2_camera_generate_messages_check_deps_IMUInfo.dir/all
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_eus.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_eus.dir/depend
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_eus.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=10 "Built target realsense2_camera_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=11 "Built target realsense2_camera_generate_messages_eus"
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4318,7 +4318,7 @@ realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_p
 realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_py.dir/all: realsense-ros/realsense2_camera/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_py.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_py.dir/depend
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_py.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=13 "Built target realsense2_camera_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=14 "Built target realsense2_camera_generate_messages_py"
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4491,7 +4491,7 @@ realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera.dir/all: realsense-
 realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera.dir/all: realsense-ros/realsense2_camera/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera.dir/depend
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=7,8 "Built target realsense2_camera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=8,9 "Built target realsense2_camera"
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera.dir/all
 
 # Include target in all.
@@ -4787,7 +4787,7 @@ realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_l
 realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_lisp.dir/all: realsense-ros/realsense2_camera/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_lisp.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_lisp.dir/depend
 	$(MAKE) -f realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_lisp.dir/build.make realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=11 "Built target realsense2_camera_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=12 "Built target realsense2_camera_generate_messages_lisp"
 .PHONY : realsense-ros/realsense2_camera/CMakeFiles/realsense2_camera_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5461,6 +5461,7 @@ ur5_project/all: ur5_project/CMakeFiles/ur5_reflexx_traj.dir/all
 ur5_project/all: ur5_project/CMakeFiles/ur5_homography.dir/all
 ur5_project/all: ur5_project/CMakeFiles/reflexxes.dir/all
 ur5_project/all: ur5_project/CMakeFiles/ik.dir/all
+ur5_project/all: ur5_project/CMakeFiles/find_hsv.dir/all
 ur5_project/all: ur5_project/CMakeFiles/move_with_homography.dir/all
 
 .PHONY : ur5_project/all
@@ -5480,6 +5481,7 @@ ur5_project/clean: ur5_project/CMakeFiles/trajectory_msgs_generate_messages_node
 ur5_project/clean: ur5_project/CMakeFiles/ik.dir/clean
 ur5_project/clean: ur5_project/CMakeFiles/trajectory_msgs_generate_messages_py.dir/clean
 ur5_project/clean: ur5_project/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/clean
+ur5_project/clean: ur5_project/CMakeFiles/find_hsv.dir/clean
 ur5_project/clean: ur5_project/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/clean
 ur5_project/clean: ur5_project/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
 ur5_project/clean: ur5_project/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/clean
@@ -5504,7 +5506,7 @@ ur5_project/preinstall:
 ur5_project/CMakeFiles/ur5_planning.dir/all:
 	$(MAKE) -f ur5_project/CMakeFiles/ur5_planning.dir/build.make ur5_project/CMakeFiles/ur5_planning.dir/depend
 	$(MAKE) -f ur5_project/CMakeFiles/ur5_planning.dir/build.make ur5_project/CMakeFiles/ur5_planning.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=23 "Built target ur5_planning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=24 "Built target ur5_planning"
 .PHONY : ur5_project/CMakeFiles/ur5_planning.dir/all
 
 # Include target in all.
@@ -5541,7 +5543,7 @@ clean: ur5_project/CMakeFiles/ur5_planning.dir/clean
 ur5_project/CMakeFiles/ur5_reflexx_traj.dir/all:
 	$(MAKE) -f ur5_project/CMakeFiles/ur5_reflexx_traj.dir/build.make ur5_project/CMakeFiles/ur5_reflexx_traj.dir/depend
 	$(MAKE) -f ur5_project/CMakeFiles/ur5_reflexx_traj.dir/build.make ur5_project/CMakeFiles/ur5_reflexx_traj.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=24 "Built target ur5_reflexx_traj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=25 "Built target ur5_reflexx_traj"
 .PHONY : ur5_project/CMakeFiles/ur5_reflexx_traj.dir/all
 
 # Include target in all.
@@ -5578,7 +5580,7 @@ clean: ur5_project/CMakeFiles/ur5_reflexx_traj.dir/clean
 ur5_project/CMakeFiles/ur5_homography.dir/all:
 	$(MAKE) -f ur5_project/CMakeFiles/ur5_homography.dir/build.make ur5_project/CMakeFiles/ur5_homography.dir/depend
 	$(MAKE) -f ur5_project/CMakeFiles/ur5_homography.dir/build.make ur5_project/CMakeFiles/ur5_homography.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=20 "Built target ur5_homography"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=21 "Built target ur5_homography"
 .PHONY : ur5_project/CMakeFiles/ur5_homography.dir/all
 
 # Include target in all.
@@ -5615,7 +5617,7 @@ clean: ur5_project/CMakeFiles/ur5_homography.dir/clean
 ur5_project/CMakeFiles/reflexxes.dir/all:
 	$(MAKE) -f ur5_project/CMakeFiles/reflexxes.dir/build.make ur5_project/CMakeFiles/reflexxes.dir/depend
 	$(MAKE) -f ur5_project/CMakeFiles/reflexxes.dir/build.make ur5_project/CMakeFiles/reflexxes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=14 "Built target reflexxes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=15 "Built target reflexxes"
 .PHONY : ur5_project/CMakeFiles/reflexxes.dir/all
 
 # Include target in all.
@@ -5876,7 +5878,7 @@ clean: ur5_project/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
 ur5_project/CMakeFiles/ik.dir/all:
 	$(MAKE) -f ur5_project/CMakeFiles/ik.dir/build.make ur5_project/CMakeFiles/ik.dir/depend
 	$(MAKE) -f ur5_project/CMakeFiles/ik.dir/build.make ur5_project/CMakeFiles/ik.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=5 "Built target ik"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=6 "Built target ik"
 .PHONY : ur5_project/CMakeFiles/ik.dir/all
 
 # Include target in all.
@@ -5967,6 +5969,43 @@ ur5_project/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/clean:
 
 # clean rule for target.
 clean: ur5_project/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target ur5_project/CMakeFiles/find_hsv.dir
+
+# All Build rule for target.
+ur5_project/CMakeFiles/find_hsv.dir/all:
+	$(MAKE) -f ur5_project/CMakeFiles/find_hsv.dir/build.make ur5_project/CMakeFiles/find_hsv.dir/depend
+	$(MAKE) -f ur5_project/CMakeFiles/find_hsv.dir/build.make ur5_project/CMakeFiles/find_hsv.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=5 "Built target find_hsv"
+.PHONY : ur5_project/CMakeFiles/find_hsv.dir/all
+
+# Include target in all.
+all: ur5_project/CMakeFiles/find_hsv.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+ur5_project/CMakeFiles/find_hsv.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 ur5_project/CMakeFiles/find_hsv.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : ur5_project/CMakeFiles/find_hsv.dir/rule
+
+# Convenience name for target.
+find_hsv: ur5_project/CMakeFiles/find_hsv.dir/rule
+
+.PHONY : find_hsv
+
+# clean rule for target.
+ur5_project/CMakeFiles/find_hsv.dir/clean:
+	$(MAKE) -f ur5_project/CMakeFiles/find_hsv.dir/build.make ur5_project/CMakeFiles/find_hsv.dir/clean
+.PHONY : ur5_project/CMakeFiles/find_hsv.dir/clean
+
+# clean rule for target.
+clean: ur5_project/CMakeFiles/find_hsv.dir/clean
 
 .PHONY : clean
 
@@ -6137,7 +6176,7 @@ clean: ur5_project/CMakeFiles/topic_tools_generate_messages_nodejs.dir/clean
 ur5_project/CMakeFiles/move_with_homography.dir/all:
 	$(MAKE) -f ur5_project/CMakeFiles/move_with_homography.dir/build.make ur5_project/CMakeFiles/move_with_homography.dir/depend
 	$(MAKE) -f ur5_project/CMakeFiles/move_with_homography.dir/build.make ur5_project/CMakeFiles/move_with_homography.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=6 "Built target move_with_homography"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=7 "Built target move_with_homography"
 .PHONY : ur5_project/CMakeFiles/move_with_homography.dir/all
 
 # Include target in all.
@@ -6870,7 +6909,7 @@ clean: universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_nod
 universal_robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/all: universal_robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/depend
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=19 "Built target ur3_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=20 "Built target ur3_moveit_plugin"
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/all
 
 # Include target in all.
@@ -6939,7 +6978,7 @@ clean: universal_robot/ur_kinematics/CMakeFiles/shape_msgs_generate_messages_py.
 universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all:
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/depend
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target ur10_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=17 "Built target ur10_kin"
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all
 
 # Include target in all.
@@ -6949,7 +6988,7 @@ all: universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all
 
 # Build rule for subdir invocation for target.
 universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/rule
@@ -7296,7 +7335,7 @@ clean: universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_mess
 universal_robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all:
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur3_kin.dir/depend
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=18 "Built target ur3_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=19 "Built target ur3_kin"
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all
 
 # Include target in all.
@@ -7333,7 +7372,7 @@ clean: universal_robot/ur_kinematics/CMakeFiles/ur3_kin.dir/clean
 universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all:
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/depend
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=21 "Built target ur5_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=22 "Built target ur5_kin"
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all
 
 # Include target in all.
@@ -7370,7 +7409,7 @@ clean: universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/clean
 universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/all: universal_robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/depend
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=17 "Built target ur10_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=18 "Built target ur10_moveit_plugin"
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/all
 
 # Include target in all.
@@ -7380,7 +7419,7 @@ all: universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
 universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/rule
@@ -7503,7 +7542,7 @@ clean: universal_robot/ur_kinematics/CMakeFiles/visualization_msgs_generate_mess
 universal_robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/all: universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/depend
 	$(MAKE) -f universal_robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build.make universal_robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=22 "Built target ur5_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=23 "Built target ur5_moveit_plugin"
 .PHONY : universal_robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/all
 
 # Include target in all.
@@ -7676,7 +7715,7 @@ Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/al
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/all: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/cartesian_control_msgs_generate_messages_nodejs.dir/all
 	$(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/depend
 	$(MAKE) -f Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/build.make Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=15,16 "Built target robot_state_helper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=16 "Built target robot_state_helper"
 .PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/all
 
 # Include target in all.
@@ -7686,7 +7725,7 @@ all: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.d
 
 # Build rule for subdir invocation for target.
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 73
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 71
 	$(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/robot_state_helper.dir/rule
@@ -7817,7 +7856,7 @@ all: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/ur_robot_driver_node
 
 # Build rule for subdir invocation for target.
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/ur_robot_driver_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 74
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 73
 	$(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/ur_robot_driver_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/ur_robot_driver_node.dir/rule
@@ -7984,7 +8023,7 @@ all: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/ur_robot_driver_plug
 
 # Build rule for subdir invocation for target.
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/ur_robot_driver_plugin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 73
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 72
 	$(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/ur_robot_driver_plugin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/ur_robot_driver_plugin.dir/rule
@@ -8179,7 +8218,7 @@ all: Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/dashboard_client.dir
 
 # Build rule for subdir invocation for target.
 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/dashboard_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 73
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 72
 	$(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/dashboard_client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : Universal_Robots_ROS_Driver/ur_robot_driver/CMakeFiles/dashboard_client.dir/rule
@@ -8808,7 +8847,7 @@ all: Universal_Robots_ROS_Driver/ur_calibration/CMakeFiles/calibration_correctio
 
 # Build rule for subdir invocation for target.
 Universal_Robots_ROS_Driver/ur_calibration/CMakeFiles/calibration_correction.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 75
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 74
 	$(MAKE) -f CMakeFiles/Makefile2 Universal_Robots_ROS_Driver/ur_calibration/CMakeFiles/calibration_correction.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : Universal_Robots_ROS_Driver/ur_calibration/CMakeFiles/calibration_correction.dir/rule

@@ -81,13 +81,6 @@ double vel_max = 0.1;
 double acc_max = 0.25;
 double jer_max = 0.5;
 
-// TODO: choose your target_z, roll, pitch and yaw
-double target_Z = 0.0;
-double target_roll = 0.0;
-double target_pitch = 0.0;
-double target_yaw = 0.0;
-
-
 
 geometry_msgs::Twist rob_pos;
 
@@ -167,10 +160,10 @@ void initialize_plan(RMLPositionInputParameters  *_IP){
 		//TODO: setup the target positions vector and velocity vectors in terms of 'plan' *********************
 		_IP->TargetPositionVector->VecData       [0] =   0 ;
 		_IP->TargetPositionVector->VecData       [1] =   0 ;
-		_IP->TargetPositionVector->VecData       [2] =   target_Z        ;
-		_IP->TargetPositionVector->VecData       [3] =   target_roll     ;
-		_IP->TargetPositionVector->VecData       [4] =   target_pitch    ;
-		_IP->TargetPositionVector->VecData       [5] =   target_yaw      ;
+		_IP->TargetPositionVector->VecData       [2] =   0 ;
+		_IP->TargetPositionVector->VecData       [3] =   0 ;
+		_IP->TargetPositionVector->VecData       [4] =   0 ;
+		_IP->TargetPositionVector->VecData       [5] =   0 ;
 
 		_IP->TargetVelocityVector->VecData       [0] =   0 ;
 		_IP->TargetVelocityVector->VecData       [1] =   0 ;
@@ -398,10 +391,10 @@ int main(int argc, char * argv[])
 			
 			IP->TargetPositionVector->VecData       [0] =   0 ;
 			IP->TargetPositionVector->VecData       [1] =   0 ;
-			IP->TargetPositionVector->VecData       [2] =   target_Z      ;
-			IP->TargetPositionVector->VecData       [3] =   target_roll   ;
-			IP->TargetPositionVector->VecData       [4] =   target_pitch  ;
-			IP->TargetPositionVector->VecData       [5] =   target_yaw    ;
+			IP->TargetPositionVector->VecData       [2] =   0 ;
+			IP->TargetPositionVector->VecData       [3] =   0 ;
+			IP->TargetPositionVector->VecData       [4] =   0 ;
+			IP->TargetPositionVector->VecData       [5] =   0 ;
 
 
   			if (rob_pos_received){

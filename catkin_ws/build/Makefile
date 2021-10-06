@@ -2302,6 +2302,19 @@ pcl_msgs_generate_messages_lisp/fast:
 .PHONY : pcl_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named find_hsv
+
+# Build rule for target.
+find_hsv: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 find_hsv
+.PHONY : find_hsv
+
+# fast build rule for target.
+find_hsv/fast:
+	$(MAKE) -f ur5_project/CMakeFiles/find_hsv.dir/build.make ur5_project/CMakeFiles/find_hsv.dir/build
+.PHONY : find_hsv/fast
+
+#=============================================================================
 # Target rules for targets named trajectory_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -3310,6 +3323,7 @@ help:
 	@echo "... ik"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... pcl_msgs_generate_messages_lisp"
+	@echo "... find_hsv"
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... pcl_msgs_generate_messages_cpp"

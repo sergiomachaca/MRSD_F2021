@@ -241,6 +241,9 @@ target_link_libraries(ur5_homography ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 add_executable(ur5_reflexx_traj src/reflexx_traj.cpp)
 target_link_libraries(ur5_reflexx_traj ${catkin_LIBRARIES} ReflexxesTypeII)
 
+add_executable(find_hsv src/find_HSV.cpp)
+target_link_libraries(find_hsv ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
 add_executable(move_with_homography src/move_with_homography.cpp)
 target_link_libraries(move_with_homography ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} )
 

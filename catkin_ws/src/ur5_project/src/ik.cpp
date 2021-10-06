@@ -123,12 +123,16 @@ void eval_points(trajectory_msgs::JointTrajectoryPoint & _point, KDL::JntArray &
 }
 
 // for lab 4 callback function 
-double targ_x = 0.0;
-double targ_y = 0.0;
+double targ_x, targ_y, targ_z, targ_roll, targ_pitch, targ_yaw = 0.0;
+
 void get_point_real(const geometry_msgs::Twist & _data){
 	if(initialized){
 		targ_x = _data.linear.x;
 		targ_y = _data.linear.y;
+		targ_z = _data.linear.z;
+		targ_roll = _data.angular.x;
+		targ_pitch = _data.angular.y;
+		targ_yaw = _data.angular.z;
 	}
 	
 }
@@ -193,8 +197,8 @@ int main(int argc, char * argv[]) {
 	KDL::JntArray jointpositions_new = KDL::JntArray(nj);
 	target_pt.p[0] = targ_x;
 	target_pt.p[1] = targ_y;
-	target_pt.p[2] = 0.6339;
-	target_pt.M = KDL::Rotation::RPY(-3.05884642965, 0.047404526993, -2.20335164461);
+	target_pt.p[2] = targ_z;
+	target_pt.M = KDL::Rotation::RPY(targ_roll, targ_pitch, targ_yaw);
 	int ret = iksolver.CartToJnt(jointpositions, target_pt, jointpositions_new);
 
 	eval_points(pt, jointpositions_new, nj);

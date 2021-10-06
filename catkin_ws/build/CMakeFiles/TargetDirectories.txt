@@ -209,6 +209,7 @@
 /home/alex/catkin_ws/build/ur5_project/CMakeFiles/ik.dir
 /home/alex/catkin_ws/build/ur5_project/CMakeFiles/trajectory_msgs_generate_messages_py.dir
 /home/alex/catkin_ws/build/ur5_project/CMakeFiles/pcl_msgs_generate_messages_lisp.dir
+/home/alex/catkin_ws/build/ur5_project/CMakeFiles/find_hsv.dir
 /home/alex/catkin_ws/build/ur5_project/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir
 /home/alex/catkin_ws/build/ur5_project/CMakeFiles/trajectory_msgs_generate_messages_eus.dir
 /home/alex/catkin_ws/build/ur5_project/CMakeFiles/rebuild_cache.dir

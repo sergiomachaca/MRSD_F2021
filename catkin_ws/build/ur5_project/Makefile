@@ -367,6 +367,21 @@ pcl_msgs_generate_messages_lisp/fast:
 .PHONY : pcl_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+ur5_project/CMakeFiles/find_hsv.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ur5_project/CMakeFiles/find_hsv.dir/rule
+.PHONY : ur5_project/CMakeFiles/find_hsv.dir/rule
+
+# Convenience name for target.
+find_hsv: ur5_project/CMakeFiles/find_hsv.dir/rule
+
+.PHONY : find_hsv
+
+# fast build rule for target.
+find_hsv/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/find_hsv.dir/build.make ur5_project/CMakeFiles/find_hsv.dir/build
+.PHONY : find_hsv/fast
+
+# Convenience name for target.
 ur5_project/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ur5_project/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
 .PHONY : ur5_project/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
@@ -500,6 +515,33 @@ topic_tools_generate_messages_lisp: ur5_project/CMakeFiles/topic_tools_generate_
 topic_tools_generate_messages_lisp/fast:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/topic_tools_generate_messages_lisp.dir/build.make ur5_project/CMakeFiles/topic_tools_generate_messages_lisp.dir/build
 .PHONY : topic_tools_generate_messages_lisp/fast
+
+src/find_HSV.o: src/find_HSV.cpp.o
+
+.PHONY : src/find_HSV.o
+
+# target to build an object file
+src/find_HSV.cpp.o:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/find_hsv.dir/build.make ur5_project/CMakeFiles/find_hsv.dir/src/find_HSV.cpp.o
+.PHONY : src/find_HSV.cpp.o
+
+src/find_HSV.i: src/find_HSV.cpp.i
+
+.PHONY : src/find_HSV.i
+
+# target to preprocess a source file
+src/find_HSV.cpp.i:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/find_hsv.dir/build.make ur5_project/CMakeFiles/find_hsv.dir/src/find_HSV.cpp.i
+.PHONY : src/find_HSV.cpp.i
+
+src/find_HSV.s: src/find_HSV.cpp.s
+
+.PHONY : src/find_HSV.s
+
+# target to generate assembly for a file
+src/find_HSV.cpp.s:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f ur5_project/CMakeFiles/find_hsv.dir/build.make ur5_project/CMakeFiles/find_hsv.dir/src/find_HSV.cpp.s
+.PHONY : src/find_HSV.cpp.s
 
 src/ik.o: src/ik.cpp.o
 
@@ -687,6 +729,7 @@ help:
 	@echo "... ik"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... pcl_msgs_generate_messages_lisp"
+	@echo "... find_hsv"
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... rebuild_cache"
@@ -698,6 +741,9 @@ help:
 	@echo "... pcl_msgs_generate_messages_py"
 	@echo "... topic_tools_generate_messages_eus"
 	@echo "... topic_tools_generate_messages_lisp"
+	@echo "... src/find_HSV.o"
+	@echo "... src/find_HSV.i"
+	@echo "... src/find_HSV.s"
 	@echo "... src/ik.o"
 	@echo "... src/ik.i"
 	@echo "... src/ik.s"
