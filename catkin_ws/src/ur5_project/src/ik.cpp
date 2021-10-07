@@ -26,44 +26,45 @@
 using namespace std;
 using namespace KDL;
 // TODO: set move_to_target to false for retrieving current xyzrpy without moving the robot; or set move_to_target to true for executing desired motion. Please compile after making changes 
-bool move_to_target = false;
+bool move_to_target = true;
 
 
 // TODO: copy and paste your own KDL chain
 KDL::Chain LWR() {
+      //TODO create the KDL chain with the ur5 calibration file 
       KDL::Chain chain;
       // base -> shoulder
       Frame R, T;
-      T = Frame(Vector());
-      R = Frame(Rotation::RPY(0,0,0));
+      T = Frame(Vector(0, 0, 0.08929437215831398));
+      R = Frame(Rotation::RPY(0,0,1.194158776760344e-05));
       Frame frame1 = Frame(T * R);
       chain.addSegment(Segment(Joint(Joint::None), frame1));
       // shoulder -> upper_arm
-      T = Frame();
-      R = Frame();
+      T = Frame(Vector(0.0001059934666038868, 0, 0));
+      R = Frame(Rotation::RPY(1.570288659480724, 0, -4.360963378713104e-05));
       Frame frame2 = Frame(T * R);
       chain.addSegment(Segment(Joint(Joint::RotZ), frame2));
       // upper_arm -> forearm
-      T = Frame();
-      R = Frame();
+      T = Frame(Vector(-0.4248744108132448, 0, 0));
+      R = Frame(Rotation::RPY(3.140689141970196,3.141029629875079,3.141577753679916));
       Frame frame3 = Frame(T * R);
       chain.addSegment(Segment(Joint(Joint::RotZ), frame3));
       // forearm -> wrist 1
-      T = Frame();
-      R = Frame();
+      T = Frame(Vector(-0.3921965391248423, -0.001215901650067357, 0.1108697089194659));
+      R = Frame(Rotation::RPY(0.01096650219786626,0.0007089237936044265,-6.461093627887461e-05));
       Frame frame4 = Frame(T * R);
       chain.addSegment(Segment(Joint(Joint::RotZ), frame4));
       // wrist 1 -> wrist 2
-      T = Frame();
-      R = Frame();
+      T = Frame(Vector(-4.432612574180066e-05,-0.09485818230946315,3.804656520711195e-05));
+      R = Frame(Rotation::RPY(1.570395237903663,0,1.346641505478031e-05));
       Frame frame5 = Frame(T * R);
       chain.addSegment(Segment(Joint(Joint::RotZ), frame5));
       // wrist 2 -> wrist 3
-      T = Frame();
-      R = Frame();
+      T = Frame(Vector(5.523513679646697e-05,0.08273360798729773,-7.130081408339577e-06));
+      R = Frame(Rotation::RPY(1.570710145597628,3.141592653589793,-3.141579371363952));
       Frame frame6 = Frame(T * R);
       chain.addSegment(Segment(Joint(Joint::RotZ), frame6));
-      // wrist 3 -> end_effector 
+      // wrist 3 -> end_effector
       chain.addSegment(Segment(Joint(Joint::RotZ), Frame(Vector(0.0, 0.0, 0.0))));
 
       return chain;
@@ -113,9 +114,9 @@ void initialize_points(trajectory_msgs::JointTrajectoryPoint & _pt, int _nj, flo
 */
 void eval_points(trajectory_msgs::JointTrajectoryPoint & _point, KDL::JntArray & _jointpositions, int _nj) {
 	for (int i = 0; i < _nj; ++i){
-		 while(_jointpositions(i) >= M_PI)
+		 while(_jointpositions(i) > M_PI)
 				_jointpositions(i) -= 2*M_PI;
-		 while(_jointpositions(i) <= -M_PI)
+		 while(_jointpositions(i) < -M_PI)
 				_jointpositions(i) += 2*M_PI;
 		_point.positions[i] = _jointpositions(i);
 	}
@@ -164,6 +165,7 @@ int main(int argc, char * argv[]) {
 	ros::Publisher xyzrpy_pub = nh_.advertise < geometry_msgs::Twist > ("/robot/worldpos", 10);
 	// TODO: Define subscriber point_real_sub to subscribe from the subscriber you added in move_with_homography.cpp
 	// The callback function get_point_real is already created
+	ros::Subscriber point_real_sub = nh_.subscribe("real_points", 10, get_point_real);
 
 	
   	// Define trajectory point.
@@ -201,8 +203,9 @@ int main(int argc, char * argv[]) {
 	target_pt.M = KDL::Rotation::RPY(targ_roll, targ_pitch, targ_yaw);
 	int ret = iksolver.CartToJnt(jointpositions, target_pt, jointpositions_new);
 
+
 	eval_points(pt, jointpositions_new, nj);
-	pt.time_from_start = ros::Duration(5.0);
+	pt.time_from_start = ros::Duration(5);
 	joint_cmd.header.stamp = ros::Time::now();
 	joint_cmd.points.push_back(pt);
 
@@ -228,6 +231,7 @@ int main(int argc, char * argv[]) {
 				tool_orientation.setRPY(roll, pitch,  yaw); 
 				tool_in_base_link.setRotation( tool_orientation );
 				br.sendTransform(tf::StampedTransform(tool_in_base_link, ros::Time::now(), "base", "tool_from_kdl"));
+				
 			}
 			joint_cmd.header.stamp = ros::Time::now();
 			if (move_to_target) {

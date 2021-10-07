@@ -26,7 +26,7 @@
 using namespace std;
 using namespace KDL;
 // TODO: set move_to_target to false for retrieving current xyzrpy without moving the robot; or set move_to_target to true for executing desired motion. Please compile after making changes 
-bool move_to_target = false;
+bool move_to_target = true;
 
 
 // TODO: copy and paste your own KDL chain

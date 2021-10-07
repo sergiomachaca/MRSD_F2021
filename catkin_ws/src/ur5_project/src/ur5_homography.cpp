@@ -102,10 +102,11 @@ int main(int argc, char * argv[]) {
     //TODO: the contour_detection and laserFollow are all false right now, change these values 
     // while you are at the corresponding step
     bool contour_detection = true;
-    bool laserFollow = false;
+    bool laserFollow = true;
 
     home.getParam("contour_detection", contour_detection);
     home.getParam("laserFollow", laserFollow);
+    cout << "contour detection = " << contour_detection << endl;
 
     int loop_freq = 5;
     ros::Rate loop_rate(loop_freq);
@@ -173,7 +174,7 @@ int main(int argc, char * argv[]) {
             int scalar_low = 25;
             int scalar_high = 65;
             inRange(img_gray, cv::Scalar(scalar_low), cv::Scalar(scalar_high), img_gray);
-
+            
             // namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
             // imshow("image window", img_gray);
             // waitKey(0);
@@ -197,13 +198,16 @@ int main(int argc, char * argv[]) {
 
                     //  Find edges 
                     Canny(img_gray, img_canny, thresh_low, thresh_high);
+                    dilate(img_canny, img_canny, getStructuringElement(MORPH_ELLIPSE, Size(12, 12)));
+                    erode(img_canny, img_canny, getStructuringElement(MORPH_ELLIPSE, Size(8, 8)));
+
                     // namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
                     // imshow("image window", img_canny);
                     // waitKey(0);
                     // destroyAllWindows();
-                    // //  Find contours
+                    // // //  Find contours
                     findContours(img_canny, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_NONE, Point(0, 0));
-                    cout << "num countours = " << contours.size() << endl;
+                    // cout << "num countours = " << contours.size() << endl;
                     
                     
 
@@ -220,9 +224,11 @@ int main(int argc, char * argv[]) {
                     // the variable contours contains numerous of individual contours and each of the contour have numerous points. 
                     // You need to determine if each individual points is inside the roi
                     
-                    
+                    // double max_len = 0;
                     vector <Point> contour = contours[i];
-
+                    // if (cv::arcLength(contour, true) > max_len){
+                    //     max_len = cv::arcLength(contour, true);
+                    // }        
                     for (Point point : contour){
                         if (!ptInRect(point, roi)){
                             in_region = false;
@@ -231,61 +237,74 @@ int main(int argc, char * argv[]) {
                     // cout << "in region" << in_region << endl;
                     // if the path is in the region of interest 
                     if (in_region) {
-                        // add the contours in the region of interest to the final contour 
-                        drawContours(img_raw, contours, i, cv::Scalar(0,255,0), 2);
-                        namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
-                        imshow("image window", img_raw);
-                        waitKey(0);
-                        destroyAllWindows();
+                        // // add the contours in the region of interest to the final contour 
+                        // drawContours(img_raw, contours, i, cv::Scalar(0,255,0), 2);
+                        // namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
+                        // imshow("image window", img_raw);
+                        // waitKey(0);
+                        // destroyAllWindows();
                         contour_path.push_back(contours[i]);
                         // use the first contour path 
-                        if (contour_path.size() == 1) {
-                            // cout << "contour path size == 1" << endl;
-                            // TODO: calculate the length of the contour in pixels, don't forget the distance between the endpoint and the start point
-                            // The total length will be restore in cont_len 
-                            double cont_len = 0;
-                            int cont_size = contour_path[0].size();
-                            // cout << "cont size = " << cont_size << endl;
-                            for (int k = 0; k < cont_size; k++){
-                                
-                                if (k == cont_size-1){
-                                    cont_len += distance(contour_path[0][k].x, contour_path[0][k].y, contour_path[0][0].x, contour_path[0][0].y);
-                                }
-                                cont_len += distance(contour_path[0][k+1].x, contour_path[0][k+1].y, contour_path[0][k].x, contour_path[0][k].y);
-                            }
-                            
-                            // cout << "cont len = " << cont_len << endl;
-
-                            Point pt;
-                            double seg_len = 0; //segment distance
-                            double seg_len_prev = 0; //previous segment distance
-                            way_points.clear();
-
-                            pt = contour_path[0][0];
-                            // add the first point to the waypoint list 
-                            way_points.push_back(pt);
-                            // go through the points in the contour and generate waypoints that are equal distance to each other
-                            for (int k = 0; k < cont_size - 1; k++) {
-                                // calculate the length of a segment on the contour
-                                seg_len += distance(contour_path[0][k].x, contour_path[0][k].y, contour_path[0][k + 1].x, contour_path[0][k + 1].y);
-                                // check if it is close to the average length (total_length/number_of_waypoints)
-                                if ((seg_len_prev < cont_len / npt) && (seg_len > cont_len / npt)) {
-                                    // add this point to the waypoint list
-                                    pt = contour_path[0][k];
-                                    way_points.push_back(pt);
-                                    // reset the length			
-                                    seg_len = 0;
-
-                                }
-                                seg_len_prev = seg_len;
-                            }
-                            // cout << "waypoint size = " << way_points.size() << endl;
-                            
-                            prev_way_points = way_points;
-
-                        }
+                        
                     }
                 }
+                vector <Point> longest_contour;
+                double max_cont_len = 0;
+                for (vector <Point> c : contour_path){
+                    if (arcLength(c, true) > max_cont_len){
+                        max_cont_len = arcLength(c, true);
+                        longest_contour = c;
+                    }
+                }
+                
+                // drawContours(img_raw, vector<vector<Point> >(1,longest_contour), -1, cv::Scalar(0,255,0), 2);
+                // namedWindow("image window", CV_WINDOW_AUTOSIZE); //create a window called "Control"
+                // imshow("image window", img_raw);
+                // waitKey(0);
+                // destroyAllWindows();
+                // int index = 0;
+                // if (contour_path.size() == index+1) {
+                    // TODO: calculate the length of the contour in pixels, don't forget the distance between the endpoint and the start point
+                    // The total length will be restore in cont_len 
+                double cont_len = 0;
+                int cont_size = longest_contour.size();
+                // cout << "cont size = " << cont_size << endl;
+                for (int k = 0; k < cont_size; k++){
+                    if (k == cont_size-1){
+                        cont_len += distance(longest_contour[k].x, longest_contour[k].y, longest_contour[0].x, longest_contour[0].y);
+                    }
+                    cont_len += distance(longest_contour[k+1].x, longest_contour[k+1].y, longest_contour[k].x, longest_contour[k].y);
+                }
+                
+                    // cout << "cont len = " << cont_len << endl;
+
+                Point pt;
+                double seg_len = 0; //segment distance
+                double seg_len_prev = 0; //previous segment distance
+                way_points.clear();
+
+                pt = longest_contour[0];
+                // add the first point to the waypoint list 
+                way_points.push_back(pt);
+                // go through the points in the contour and generate waypoints that are equal distance to each other
+                for (int k = 0; k < cont_size - 1; k++) {
+                    // calculate the length of a segment on the contour
+                    seg_len += distance(longest_contour[k].x, longest_contour[k].y, longest_contour[k + 1].x, longest_contour[k + 1].y);
+                    // check if it is close to the average length (total_length/number_of_waypoints)
+                    if ((seg_len_prev < cont_len / npt) && (seg_len > cont_len / npt)) {
+                        // add this point to the waypoint list
+                        pt = longest_contour[k];
+                        way_points.push_back(pt);
+                        // reset the length			
+                        seg_len = 0;
+
+                    }
+                    seg_len_prev = seg_len;
+                }
+                // cout << "waypoint size = " << way_points.size() << endl;
+                    
+                prev_way_points = way_points;
+            
                 if (plan_created) {
                     final_way_points = way_points;
                 }
@@ -304,6 +323,7 @@ int main(int argc, char * argv[]) {
                 perspectiveTransform(way_points, real_way_points, h);
                 // cout << "post perspective" << endl;
                 trajectory_msgs::JointTrajectory plan;
+                cout << way_points.size()  << endl;
                 for (int k = 0; k < way_points.size(); k++) {
                     trajectory_msgs::JointTrajectoryPoint plan_pt;
                     plan_pt.positions.push_back(real_way_points[k].x);
@@ -320,6 +340,8 @@ int main(int argc, char * argv[]) {
                     plan.points.push_back(plan_pt);
 
                 }
+                cout << "plan created = " << plan_created << endl;
+                cout << "plan size = " << plan.points[0] << endl;
                 plan_pub.publish(plan);
 
             }

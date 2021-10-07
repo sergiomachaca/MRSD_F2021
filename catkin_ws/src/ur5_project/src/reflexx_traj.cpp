@@ -110,6 +110,7 @@ void get_pos(const geometry_msgs::Twist & _data){
 
 void get_plan(const trajectory_msgs::JointTrajectory & _data){
 	plan = _data;
+	// std::cout <<"plan points = " << plan.points[0] << std::endl;
 	plan_available = true;
 	number_of_points = plan.points.size();
 }
@@ -158,19 +159,19 @@ void initialize_plan(RMLPositionInputParameters  *_IP){
 
 		//setting the target velcoity and positions
 		//TODO: setup the target positions vector and velocity vectors in terms of 'plan' *********************
-		_IP->TargetPositionVector->VecData       [0] =   0 ;
-		_IP->TargetPositionVector->VecData       [1] =   0 ;
-		_IP->TargetPositionVector->VecData       [2] =   0 ;
-		_IP->TargetPositionVector->VecData       [3] =   0 ;
-		_IP->TargetPositionVector->VecData       [4] =   0 ;
-		_IP->TargetPositionVector->VecData       [5] =   0 ;
+		_IP->TargetPositionVector->VecData       [0] =   plan.points[0].positions[0];
+		_IP->TargetPositionVector->VecData       [1] =   plan.points[0].positions[1];
+		_IP->TargetPositionVector->VecData       [2] =   plan.points[0].positions[2];
+		_IP->TargetPositionVector->VecData       [3] =   plan.points[0].positions[3];
+		_IP->TargetPositionVector->VecData       [4] =   plan.points[0].positions[4];
+		_IP->TargetPositionVector->VecData       [5] =   plan.points[0].positions[5];
 
-		_IP->TargetVelocityVector->VecData       [0] =   0 ;
-		_IP->TargetVelocityVector->VecData       [1] =   0 ;
-		_IP->TargetVelocityVector->VecData       [2] =   0 ;
-		_IP->TargetVelocityVector->VecData       [3] =   0 ;
-		_IP->TargetVelocityVector->VecData       [4] =   0 ;
-		_IP->TargetVelocityVector->VecData       [5] =   0 ;
+		_IP->TargetVelocityVector->VecData       [0] =   plan.points[0].velocities[0];
+		_IP->TargetVelocityVector->VecData       [1] =   plan.points[0].velocities[1];
+		_IP->TargetVelocityVector->VecData       [2] =   plan.points[0].velocities[2];
+		_IP->TargetVelocityVector->VecData       [3] =   plan.points[0].velocities[3];
+		_IP->TargetVelocityVector->VecData       [4] =   plan.points[0].velocities[4];
+		_IP->TargetVelocityVector->VecData       [5] =   plan.points[0].velocities[5];
 		// ****************************************************************************************************
 
 		//determine which Degrees of freedom should be calculated
@@ -389,12 +390,12 @@ int main(int argc, char * argv[])
 			*CODE HERE
 			*/
 			
-			IP->TargetPositionVector->VecData       [0] =   0 ;
-			IP->TargetPositionVector->VecData       [1] =   0 ;
-			IP->TargetPositionVector->VecData       [2] =   0 ;
-			IP->TargetPositionVector->VecData       [3] =   0 ;
-			IP->TargetPositionVector->VecData       [4] =   0 ;
-			IP->TargetPositionVector->VecData       [5] =   0 ;
+			IP->TargetPositionVector->VecData       [0] =   plan.points[next_wp].positions[0] ;
+			IP->TargetPositionVector->VecData       [1] =   plan.points[next_wp].positions[1] ;
+			IP->TargetPositionVector->VecData       [2] =   plan.points[next_wp].positions[2] ;
+			IP->TargetPositionVector->VecData       [3] =   plan.points[next_wp].positions[3] ;
+			IP->TargetPositionVector->VecData       [4] =   plan.points[next_wp].positions[4] ;
+			IP->TargetPositionVector->VecData       [5] =   plan.points[next_wp].positions[5] ;
 
 
   			if (rob_pos_received){
