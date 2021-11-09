@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="joint_controller" pkg="ur5_project" type="reflexxes">
+
+        </node>
+
+	<node name="plan" pkg="ur5_project" type="ur5_planning">
+		<param name="plan_file_name" value="/traj/plan.txt"/>
+		
+
+	</node>
+	
+
+        <node name="ref_genXYZ" pkg = "ur5_project" type="ur5_reflexx_traj">
+		<param name="external_plan" value = "true"/>
+		
+	</node>
+</launch>

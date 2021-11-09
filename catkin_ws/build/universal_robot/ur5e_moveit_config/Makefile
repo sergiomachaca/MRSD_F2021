@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
+CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -80,16 +92,15 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : test/fast
+.PHONY : list_install_components/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -113,38 +124,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/mrsd/catkin_ws/build/CMakeFiles /home/mrsd/catkin_ws/build/universal_robot/ur5e_moveit_config/CMakeFiles/progress.marks
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mrsd/catkin_ws/build/CMakeFiles 0
+	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles /home/alex/catkin_ws/build/universal_robot/ur5e_moveit_config/CMakeFiles/progress.marks
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/clean
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,123 +143,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/preinstall
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/preinstall
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config.dir/rule:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config.dir/rule
-.PHONY : universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config.dir/rule
-
-# Convenience name for target.
-_run_tests_ur5e_moveit_config: universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config.dir/rule
-
-.PHONY : _run_tests_ur5e_moveit_config
-
-# fast build rule for target.
-_run_tests_ur5e_moveit_config/fast:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config.dir/build.make universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config.dir/build
-.PHONY : _run_tests_ur5e_moveit_config/fast
-
-# Convenience name for target.
-universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config.dir/rule:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config.dir/rule
-.PHONY : universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config.dir/rule
-
-# Convenience name for target.
-run_tests_ur5e_moveit_config: universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config.dir/rule
-
-.PHONY : run_tests_ur5e_moveit_config
-
-# fast build rule for target.
-run_tests_ur5e_moveit_config/fast:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config.dir/build.make universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config.dir/build
-.PHONY : run_tests_ur5e_moveit_config/fast
-
-# Convenience name for target.
-universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule
-.PHONY : universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule
-
-# Convenience name for target.
-run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml: universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule
-
-.PHONY : run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml
-
-# fast build rule for target.
-run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml/fast:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/build.make universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/build
-.PHONY : run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml/fast
-
-# Convenience name for target.
-universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule
-.PHONY : universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule
-
-# Convenience name for target.
-_run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml: universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule
-
-.PHONY : _run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml
-
-# fast build rule for target.
-_run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml/fast:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/build.make universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/build
-.PHONY : _run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml/fast
-
-# Convenience name for target.
-universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check.dir/rule:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check.dir/rule
-.PHONY : universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check.dir/rule
-
-# Convenience name for target.
-_run_tests_ur5e_moveit_config_roslaunch-check: universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check.dir/rule
-
-.PHONY : _run_tests_ur5e_moveit_config_roslaunch-check
-
-# fast build rule for target.
-_run_tests_ur5e_moveit_config_roslaunch-check/fast:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check.dir/build.make universal_robot/ur5e_moveit_config/CMakeFiles/_run_tests_ur5e_moveit_config_roslaunch-check.dir/build
-.PHONY : _run_tests_ur5e_moveit_config_roslaunch-check/fast
-
-# Convenience name for target.
-universal_robot/ur5e_moveit_config/CMakeFiles/clean_test_results_ur5e_moveit_config.dir/rule:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/CMakeFiles/clean_test_results_ur5e_moveit_config.dir/rule
-.PHONY : universal_robot/ur5e_moveit_config/CMakeFiles/clean_test_results_ur5e_moveit_config.dir/rule
-
-# Convenience name for target.
-clean_test_results_ur5e_moveit_config: universal_robot/ur5e_moveit_config/CMakeFiles/clean_test_results_ur5e_moveit_config.dir/rule
-
-.PHONY : clean_test_results_ur5e_moveit_config
-
-# fast build rule for target.
-clean_test_results_ur5e_moveit_config/fast:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f universal_robot/ur5e_moveit_config/CMakeFiles/clean_test_results_ur5e_moveit_config.dir/build.make universal_robot/ur5e_moveit_config/CMakeFiles/clean_test_results_ur5e_moveit_config.dir/build
-.PHONY : clean_test_results_ur5e_moveit_config/fast
-
-# Convenience name for target.
-universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check.dir/rule:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check.dir/rule
-.PHONY : universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check.dir/rule
-
-# Convenience name for target.
-run_tests_ur5e_moveit_config_roslaunch-check: universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check.dir/rule
-
-.PHONY : run_tests_ur5e_moveit_config_roslaunch-check
-
-# fast build rule for target.
-run_tests_ur5e_moveit_config_roslaunch-check/fast:
-	cd /home/mrsd/catkin_ws/build && $(MAKE) -f universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check.dir/build.make universal_robot/ur5e_moveit_config/CMakeFiles/run_tests_ur5e_moveit_config_roslaunch-check.dir/build
-.PHONY : run_tests_ur5e_moveit_config_roslaunch-check/fast
 
 # Help Target
 help:
@@ -279,19 +163,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... _run_tests_ur5e_moveit_config"
+	@echo "... install"
 	@echo "... install/local"
-	@echo "... run_tests_ur5e_moveit_config"
-	@echo "... run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml"
-	@echo "... _run_tests_ur5e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml"
-	@echo "... test"
-	@echo "... _run_tests_ur5e_moveit_config_roslaunch-check"
+	@echo "... list_install_components"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... clean_test_results_ur5e_moveit_config"
-	@echo "... list_install_components"
-	@echo "... run_tests_ur5e_moveit_config_roslaunch-check"
-	@echo "... install"
 .PHONY : help
 
 
@@ -303,6 +179,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

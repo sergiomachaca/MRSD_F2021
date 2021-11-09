@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "ur_dashboard_msgs")
-set(ur_dashboard_msgs_VERSION "2.0.0")
+set(ur_dashboard_msgs_VERSION "0.0.0")
 set(ur_dashboard_msgs_MAINTAINER "Felix Exner <exner@FZI.de>")
 set(ur_dashboard_msgs_PACKAGE_FORMAT "2")
 set(ur_dashboard_msgs_BUILD_DEPENDS "message_generation" "actionlib_msgs" "std_msgs")

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mrsd/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/alex/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mrsd/catkin_ws/build
+CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 
 # Utility rule file for pcl_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ ur5_project/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/build: pcl_msgs_gen
 .PHONY : ur5_project/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/build
 
 ur5_project/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/mrsd/catkin_ws/build/ur5_project && $(CMAKE_COMMAND) -P CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/alex/catkin_ws/build/ur5_project && $(CMAKE_COMMAND) -P CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : ur5_project/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/clean
 
 ur5_project/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/mrsd/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mrsd/catkin_ws/src /home/mrsd/catkin_ws/src/ur5_project /home/mrsd/catkin_ws/build /home/mrsd/catkin_ws/build/ur5_project /home/mrsd/catkin_ws/build/ur5_project/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/catkin_ws/src /home/alex/catkin_ws/src/ur5_project /home/alex/catkin_ws/build /home/alex/catkin_ws/build/ur5_project /home/alex/catkin_ws/build/ur5_project/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ur5_project/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/depend
 

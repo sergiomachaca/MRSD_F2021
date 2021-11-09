@@ -228,8 +228,6 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(manual src/manual.cpp)
-target_link_libraries(manual ${catkin_LIBRARIES} orocos-kdl)
 
 add_executable(ik src/ik.cpp)
 target_link_libraries(ik ${catkin_LIBRARIES} orocos-kdl)
@@ -242,3 +240,12 @@ target_link_libraries(ur5_homography ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 add_executable(ur5_reflexx_traj src/reflexx_traj.cpp)
 target_link_libraries(ur5_reflexx_traj ${catkin_LIBRARIES} ReflexxesTypeII)
+
+add_executable(find_hsv src/find_HSV.cpp)
+target_link_libraries(find_hsv ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+add_executable(move_with_homography src/move_with_homography.cpp)
+target_link_libraries(move_with_homography ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} )
+
+add_executable(ur5_planning src/planning.cpp)
+target_link_libraries(ur5_planning ${catkin_LIBRARIES} ${OpenCV_LIBS} ${PCL_LIBRARIES})

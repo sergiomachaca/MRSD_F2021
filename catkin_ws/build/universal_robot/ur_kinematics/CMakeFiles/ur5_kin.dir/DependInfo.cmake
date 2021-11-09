@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mrsd/catkin_ws/src/universal_robot/ur_kinematics/src/ur_kin.cpp" "/home/mrsd/catkin_ws/build/universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/src/ur_kin.cpp.o"
+  "/home/alex/catkin_ws/src/universal_robot/ur_kinematics/src/ur_kin.cpp" "/home/alex/catkin_ws/build/universal_robot/ur_kinematics/CMakeFiles/ur5_kin.dir/src/ur_kin.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,7 +18,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/mrsd/catkin_ws/src/universal_robot/ur_kinematics/include"
+  "/home/alex/catkin_ws/src/universal_robot/ur_kinematics/include"
   "/opt/ros/melodic/include"
   "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/opt/ros/melodic/share/orocos_kdl/cmake/../../../include"

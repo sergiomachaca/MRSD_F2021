@@ -77,6 +77,11 @@ bool plan_available = false;
 bool rob_pos_received = false;
 int number_of_points = 0;
 
+double vel_max = 0.1; 
+double acc_max = 0.25;
+double jer_max = 0.5;
+
+
 geometry_msgs::Twist rob_pos;
 
 double init_x, init_y, init_z, init_roll, init_pitch, init_yaw;
@@ -103,29 +108,105 @@ void get_pos(const geometry_msgs::Twist & _data){
     }
 }
 
+void get_plan(const trajectory_msgs::JointTrajectory & _data){
+	plan = _data;
+	// std::cout <<"plan points = " << plan.points[0] << std::endl;
+	plan_available = true;
+	number_of_points = plan.points.size();
+}
+
+void initialize_plan(RMLPositionInputParameters  *_IP){
+		
+
+		_IP->CurrentVelocityVector->VecData      [0] =    0     ;
+		_IP->CurrentVelocityVector->VecData      [1] =    0      ;
+		_IP->CurrentVelocityVector->VecData      [2] =    0      ;
+		_IP->CurrentVelocityVector->VecData      [3] =    0      ;
+		_IP->CurrentVelocityVector->VecData      [4] =    0      ;
+		_IP->CurrentVelocityVector->VecData      [5] =    0      ;
+
+		_IP->CurrentAccelerationVector->VecData  [0] =    0      ;
+		_IP->CurrentAccelerationVector->VecData  [1] =    0      ;
+		_IP->CurrentAccelerationVector->VecData  [2] =    0      ;
+		_IP->CurrentAccelerationVector->VecData  [3] =    0      ;
+		_IP->CurrentAccelerationVector->VecData  [4] =    0      ;
+		_IP->CurrentAccelerationVector->VecData  [5] =    0      ;
+
+
+		_IP->MaxVelocityVector->VecData          [0] =    vel_max      ;
+		_IP->MaxVelocityVector->VecData          [1] =    vel_max      ;
+		_IP->MaxVelocityVector->VecData          [2] =    vel_max      ;
+		_IP->MaxVelocityVector->VecData          [3] =    vel_max      ;
+		_IP->MaxVelocityVector->VecData          [4] =    vel_max      ;
+		_IP->MaxVelocityVector->VecData          [5] =    vel_max      ;
+
+
+		_IP->MaxAccelerationVector->VecData      [0] =    acc_max      ;
+		_IP->MaxAccelerationVector->VecData      [1] =    acc_max      ;
+		_IP->MaxAccelerationVector->VecData      [2] =    acc_max      ;
+		_IP->MaxAccelerationVector->VecData      [3] =    acc_max      ;
+		_IP->MaxAccelerationVector->VecData      [4] =    acc_max      ;
+		_IP->MaxAccelerationVector->VecData      [5] =    acc_max      ;
+
+
+
+		_IP->MaxJerkVector->VecData              [0] =    jer_max      ;
+		_IP->MaxJerkVector->VecData              [1] =    jer_max      ;
+		_IP->MaxJerkVector->VecData              [2] =    jer_max      ;
+		_IP->MaxJerkVector->VecData              [3] =    jer_max      ;
+		_IP->MaxJerkVector->VecData              [4] =    jer_max      ;
+		_IP->MaxJerkVector->VecData              [5] =    jer_max      ;
+
+		//setting the target velcoity and positions
+		//TODO: setup the target positions vector and velocity vectors in terms of 'plan' *********************
+		_IP->TargetPositionVector->VecData       [0] =   plan.points[0].positions[0];
+		_IP->TargetPositionVector->VecData       [1] =   plan.points[0].positions[1];
+		_IP->TargetPositionVector->VecData       [2] =   plan.points[0].positions[2];
+		_IP->TargetPositionVector->VecData       [3] =   plan.points[0].positions[3];
+		_IP->TargetPositionVector->VecData       [4] =   plan.points[0].positions[4];
+		_IP->TargetPositionVector->VecData       [5] =   plan.points[0].positions[5];
+
+		_IP->TargetVelocityVector->VecData       [0] =   plan.points[0].velocities[0];
+		_IP->TargetVelocityVector->VecData       [1] =   plan.points[0].velocities[1];
+		_IP->TargetVelocityVector->VecData       [2] =   plan.points[0].velocities[2];
+		_IP->TargetVelocityVector->VecData       [3] =   plan.points[0].velocities[3];
+		_IP->TargetVelocityVector->VecData       [4] =   plan.points[0].velocities[4];
+		_IP->TargetVelocityVector->VecData       [5] =   plan.points[0].velocities[5];
+		// ****************************************************************************************************
+
+		//determine which Degrees of freedom should be calculated
+		_IP->SelectionVector->VecData            [0] =   true        ;
+		_IP->SelectionVector->VecData            [1] =   true        ;
+		_IP->SelectionVector->VecData            [2] =   true        ;
+		_IP->SelectionVector->VecData            [3] =   true        ;
+		_IP->SelectionVector->VecData            [4] =   true        ;
+		_IP->SelectionVector->VecData            [5] =   true        ;
+
+}
+
+
 
 int main(int argc, char * argv[])
 {
 
-	ros::init(argc,argv,"reflexx_traj");
-	ros::NodeHandle nh_;
-	ros::NodeHandle home("~");
+    ros::init(argc,argv,"reflexx_traj");
+    ros::NodeHandle nh_;
+    ros::NodeHandle home("~");
 
 	bool external_plan = false;
-	home.getParam("external_plan",external_plan);
+    home.getParam("external_plan",external_plan);
 	
 
-	int loop_freq = 10;
-	float dt = (float) 1/loop_freq;
-	ros::Rate loop_rate(loop_freq);
+    int loop_freq = 10;
+    float dt = (float) 1/loop_freq;
+    ros::Rate loop_rate(loop_freq);
 
-	/*	TODO
-			1. Publisher for sending geometry_msgs::Twist at node "/reftraj".
-			2. Subscriber of the robot position "/robot/worldpos/" with the callback function get_pos.
-	*/
-	/*
-	 * CODE HERE.
-	*/    
+	
+    ros::Publisher reflexxes_pub = nh_.advertise<geometry_msgs::Twist>("/reftraj",1);
+    ros::Subscriber pos_sub = nh_.subscribe("/robot/worldpos/" ,1, get_pos);
+	ros::Subscriber plan_sub = nh_.subscribe("/plan",1,get_plan);
+
+    
 
     geometry_msgs::Twist ref;
 
@@ -187,20 +268,83 @@ int main(int argc, char * argv[])
     IP -> CurrentPositionVector -> VecData[5] = init_yaw;
 
 	if(external_plan){
-		
+		while (!plan_available){
+			loop_rate.sleep();
+			ros::spinOnce();
+		}
+		initialize_plan(IP);
 	}else{
 
-    // initializing the solver for producing the trajectories with position, vel, acc and their constraints
+    // initializing the solver for porducing the trajectories with position, vel, acc and their constraints
+		
 		// You can use the following recommended values
 		double vel_max = 0.1; 
 		double acc_max = 0.25;
 		double jer_max = 0.5;
-		// TODO: Initlize the solver with current vel, current acc, max vel, max acc, max jerk, target pos, vel, acc
-        // You can add small increments (0.02 m or 0.5 rad)to the initial positions to get a close and safe target position
-        // initial positions are retrieved in: init_x, init_y, init_z, init_roll, init_pitch, init_yaw
-		/*
-		 * CODE HERE.
-		*/
+		
+		
+        IP->CurrentVelocityVector->VecData      [0] =    0.0      ;
+		IP->CurrentVelocityVector->VecData      [1] =    0.0      ;
+		IP->CurrentVelocityVector->VecData      [2] =    0.0      ;
+		IP->CurrentVelocityVector->VecData      [3] =    0.0      ;
+		IP->CurrentVelocityVector->VecData      [4] =    0.0      ;
+		IP->CurrentVelocityVector->VecData      [5] =    0.0      ;
+
+		IP->CurrentAccelerationVector->VecData  [0] =    0.0      ;
+		IP->CurrentAccelerationVector->VecData  [1] =    0.0      ;
+		IP->CurrentAccelerationVector->VecData  [2] =    0.0      ;
+		IP->CurrentAccelerationVector->VecData  [3] =    0.0      ;
+		IP->CurrentAccelerationVector->VecData  [4] =    0.0      ;
+		IP->CurrentAccelerationVector->VecData  [5] =    0.0      ;
+
+
+		IP->MaxVelocityVector->VecData          [0] =    vel_max      ;
+		IP->MaxVelocityVector->VecData          [1] =    vel_max      ;
+		IP->MaxVelocityVector->VecData          [2] =    vel_max      ;
+		IP->MaxVelocityVector->VecData          [3] =    vel_max      ;
+		IP->MaxVelocityVector->VecData          [4] =    vel_max      ;
+		IP->MaxVelocityVector->VecData          [5] =    vel_max      ;
+
+
+		IP->MaxAccelerationVector->VecData      [0] =    acc_max      ;
+		IP->MaxAccelerationVector->VecData      [1] =    acc_max      ;
+		IP->MaxAccelerationVector->VecData      [2] =    acc_max      ;
+		IP->MaxAccelerationVector->VecData      [3] =    acc_max      ;
+		IP->MaxAccelerationVector->VecData      [4] =    acc_max      ;
+		IP->MaxAccelerationVector->VecData      [5] =    acc_max      ;
+
+
+
+		IP->MaxJerkVector->VecData              [0] =    jer_max      ;
+		IP->MaxJerkVector->VecData              [1] =    jer_max      ;
+		IP->MaxJerkVector->VecData              [2] =    jer_max      ;
+		IP->MaxJerkVector->VecData              [3] =    jer_max      ;
+		IP->MaxJerkVector->VecData              [4] =    jer_max      ;
+		IP->MaxJerkVector->VecData              [5] =    jer_max      ;
+
+		//setting the target velcoity and positions
+		IP->TargetPositionVector->VecData       [0] =    init_x + 0.02   ;
+		IP->TargetPositionVector->VecData       [1] =   init_y     ;
+		IP->TargetPositionVector->VecData       [2] =    init_z     ;
+		IP->TargetPositionVector->VecData       [3] =   init_roll     ;
+		IP->TargetPositionVector->VecData       [4] =   init_pitch   ;
+		IP->TargetPositionVector->VecData       [5] =    init_yaw    ;
+
+
+		IP->TargetVelocityVector->VecData       [0] =    0.0       ;
+		IP->TargetVelocityVector->VecData       [1] =    0.0       ;
+		IP->TargetVelocityVector->VecData       [2] =    0.0       ;
+		IP->TargetVelocityVector->VecData       [3] =    0.0       ;
+		IP->TargetVelocityVector->VecData       [4] =    0.0       ;
+		IP->TargetVelocityVector->VecData       [5] =    0.0       ;
+
+		//determine which Degrees of freedom should be calculated
+		IP->SelectionVector->VecData            [0] =   true        ;
+		IP->SelectionVector->VecData            [1] =   true        ;
+		IP->SelectionVector->VecData            [2] =   true        ;
+		IP->SelectionVector->VecData            [3] =   true        ;
+		IP->SelectionVector->VecData            [4] =   true        ;
+		IP->SelectionVector->VecData            [5] =   true        ;
 
 		//determine which Degrees of freedom should be calculated
 		IP->SelectionVector->VecData            [0] =   true        ;
@@ -213,6 +357,7 @@ int main(int argc, char * argv[])
 
     // ********************************************************************
     // Starting the control loop
+	int ctr = 1; // counter for the plan 
     while(ros::ok()){
 
 		if (ResultValue != ReflexxesAPI::RML_FINAL_STATE_REACHED){
@@ -223,6 +368,7 @@ int main(int argc, char * argv[])
 		
 		
 		// std::cout << "updating values "<<std::endl;
+
         // Calling the Reflexxes OTG algorithm
         ResultValue =   RML->RMLPosition(       *IP
                                             ,   OP
@@ -234,7 +380,39 @@ int main(int argc, char * argv[])
             break;
         }
 
+		if (ResultValue == ReflexxesAPI::RML_FINAL_STATE_REACHED && external_plan){
+			//setting the target velcoity and positions
+			
+			int next_wp;
+			next_wp = ctr % number_of_points;
+			// TODO make setup the target position vector in terms of 'plan' 
+			/* 
+			*CODE HERE
+			*/
+			
+			IP->TargetPositionVector->VecData       [0] =   plan.points[next_wp].positions[0] ;
+			IP->TargetPositionVector->VecData       [1] =   plan.points[next_wp].positions[1] ;
+			IP->TargetPositionVector->VecData       [2] =   plan.points[next_wp].positions[2] ;
+			IP->TargetPositionVector->VecData       [3] =   plan.points[next_wp].positions[3] ;
+			IP->TargetPositionVector->VecData       [4] =   plan.points[next_wp].positions[4] ;
+			IP->TargetPositionVector->VecData       [5] =   plan.points[next_wp].positions[5] ;
 
+
+  			if (rob_pos_received){
+				IP->CurrentPositionVector->VecData[0] = rob_pos.linear.x;
+				IP->CurrentPositionVector->VecData[1] = rob_pos.linear.y;
+				IP->CurrentPositionVector->VecData[2] = rob_pos.linear.z;
+				IP->CurrentPositionVector->VecData[3] = rob_pos.angular.x;
+				IP->CurrentPositionVector->VecData[4] = rob_pos.angular.y;
+				IP->CurrentPositionVector->VecData[5] = rob_pos.angular.z;
+			}
+			
+			ctr ++;
+
+			ResultValue =   RML->RMLPosition(       *IP
+				                                ,   OP
+				                                ,   Flags       );
+		}
 
         // ****************************************************************
         // Here, the new state of motion, that is
@@ -249,19 +427,6 @@ int main(int argc, char * argv[])
         // controllers (e.g., Cartesian impedance controllers,
         // operational space controllers).
         // ****************************************************************
-
-		// ***********Controller starts here ******************************
-		// Add pd controller to the new position (expected position)
-		// if(initial_point_reached && error_received){ // if the first point on the contour is reached and the error is received, add error terms to the x and y position
-		// 	// P controller
-		// 	OP->NewPositionVector->VecData         [0] = OP->NewPositionVector->VecData [0] - kp * pos_error_x; 
-		// 	OP->NewPositionVector->VecData         [1] = OP->NewPositionVector->VecData [1] - kp * pos_error_y; 
-		// 	std::cout <<"P controller working" << std::endl;
-
-		// 	// // PD controller ( there is no sensor measuring the velocity, so maybe d controller is not applicable)
-		// 	// OP->NewPositionVector->VecData         [0] = OP->NewPositionVector->VecData [0] - kp * pos_error.x - kd * vel_error.x; 
-		// 	// OP->NewPositionVector->VecData         [1] = OP->NewPositionVector->VecData [1] - kp * pos_error.y - kd * vel_error.y; 
-		// }
 		
 
 		// ***********Controller ends here ********************************
@@ -285,19 +450,24 @@ int main(int argc, char * argv[])
 		ref.angular.y = IP->CurrentPositionVector->VecData[4];
 		ref.angular.z = IP->CurrentPositionVector->VecData[5];
 
-		//reflexxes_pub.publish(ref); // TODO: recover this line.
 		
-		}
+		reflexxes_pub.publish(ref);
+		
+	    }
 		
 
 		loop_rate.sleep();
 		ros::spinOnce();
-		//********************************************************************
-		// Deleting the objects of the Reflexxes Motion Library end terminating the process
-	}
-	delete  RML         ;
-	delete  IP          ;
-	delete  OP          ;
+		
 
-	exit(EXIT_SUCCESS)  ;
+	    // ********************************************************************
+	    // Deleting the objects of the Reflexxes Motion Library end terminating
+	    // the process
+    }
+
+    delete  RML         ;
+    delete  IP          ;
+    delete  OP          ;
+
+    exit(EXIT_SUCCESS)  ;
 }
