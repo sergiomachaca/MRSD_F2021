@@ -59,7 +59,7 @@ settings.videoRecording_on = 1;
 % dipole model for this lab
 % PID settings
 settings.p_control = 1;
-settings.d_control = 0;
+settings.d_control = 1;
 settings.i_control = 1;
 
 %settings.dipole_model = 0; 
@@ -117,11 +117,11 @@ handles.data.goalReached = 0; % boolean to determine if the target is reached
 
 % TODO: change target x and y for deired position and convert them into
 % pixel coordinates so that they can be displayed on the image
-handles.data.desired_x = (632 - handles.data.petri_center(1))*scalar ;
-handles.data.desired_y = (529 - handles.data.petri_center(1))*scalar ;
+handles.data.desired_x = (700 - handles.data.petri_center(1))*scalar ;
+handles.data.desired_y = (515 - handles.data.petri_center(2))*scalar ;
 handles.data.desired_theta = 0; 
-handles.data.image_desired_x = 632;
-handles.data.image_desired_y = 529 ;
+handles.data.image_desired_x = 700 ;
+handles.data.image_desired_y = 515 ;
 
 
 
@@ -185,7 +185,7 @@ while (~FS.Stop())
     end
     
     
-    coil_currents = MapInputtoCoilCurrents(u, settings);  % calculate the coil current command
+    coil_currents = MapInputtoCoilCurrents(u, settings)  % calculate the coil current command
     ArduinoCommunication(coil_currents, handles.arduino); % send coil current command to arduino
     
     if(settings.image_processing_on)
@@ -248,6 +248,7 @@ end
 if (settings.videoRecording_on)
     close(v);
 end
+
 if(settings.closedloop_control_on)
     % send 0 0 0 0 to arduino before closing everything
     coil_currents = [0, 0, 0, 0];

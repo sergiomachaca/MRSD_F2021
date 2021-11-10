@@ -8,7 +8,7 @@ th = data.curr_theta;
 % effort should be in the form of [south west east north].
 kp = 0.15*0.1e3;
 ki = 0.02*0.1e3;
-kd = 0.005*0.1e3;
+kd = 0.1*0.1e3;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Use settings.p_control, settings.i_control, settings.d_control in your pid control equation
@@ -23,9 +23,13 @@ data.err_yPos = data.desired_y - data.curr_y;
 
 if abs(ki * data.sum_err_x) < 0.8 
     data.sum_err_x = data.sum_err_x + data.err_xPos;
+else
+    disp("anti-windup engaged");
 end
 if abs(ki * data.sum_err_y) < 0.8 
     data.sum_err_y = data.sum_err_y + data.err_yPos;
+else
+    disp("anti-windup engaged");
 end
 
 if settings.p_control
@@ -44,16 +48,9 @@ if settings.i_control
     x_e = ki * data.sum_err_x;
     y_e = ki * data.sum_err_y;
     
-%     if abs(x_e) > 0.7
-%         x_e = 0.8 *  x_e / abs(x_e);
-%     end
-%     if abs(y_e) > 0.7
-%         y_e = 0.8 *  y_e / abs(y_e);
-%     end
-
-    east = east - ki * x_e;
+    east = east - x_e;
     west = -east;
-    south = south - ki * y_e;
+    south = south - y_e;
     north = -south;
 end
 
@@ -64,6 +61,7 @@ u(u > 0) = 0;
 MAX_CURR = 1;
 curr_sum = norm(u);
 if curr_sum >MAX_CURR
+    disp('Max Current Exceeded');
     u = u/curr_sum*MAX_CURR;
 end
 
